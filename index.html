@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Анти-ИИ Квен Академия | Литература ГВЭ-9 2027</title>
+  <meta name="description" content="Бесплатный тренажёр для ГВЭ-9 по литературе 2027: письменная и устная формы, критерии, справочник." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    * { box-sizing: border-box; }
+    :root, [data-theme="dark"] {
+      --bg: #04140a;
+      --bg-grad1: rgba(34, 255, 136, 0.18);
+      --bg-grad2: rgba(0, 204, 102, 0.14);
+      --card: rgba(14, 38, 22, 0.78);
+      --card-soft: rgba(34, 255, 136, 0.06);
+      --border: rgba(34, 255, 136, 0.2);
+      --border-strong: rgba(34, 255, 136, 0.4);
+      --text: #e8ffec;
+      --text-soft: #b8e6c4;
+      --muted: #9ac8a8;
+      --accent: #22ff88;
+      --accent2: #00cc66;
+      --accent-text: #04140a;
+      --light-green: rgba(34, 255, 136, 0.1);
+      --red: #ef4444;
+      --orange: #f59e0b;
+      --green: #10b981;
+      --green-light: rgba(34, 197, 94, 0.15);
+      --green-border: rgba(34, 197, 94, 0.4);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      --header-bg: rgba(4, 20, 10, 0.85);
+    }
+    [data-theme="light"] {
+      --bg: #f0fdf4;
+      --bg-grad1: rgba(34, 197, 94, 0.12);
+      --bg-grad2: rgba(21, 128, 61, 0.08);
+      --card: #ffffff;
+      --card-soft: #f8fafc;
+      --border: #bbf7d0;
+      --border-strong: #22c55e;
+      --text: #166534;
+      --text-soft: #334155;
+      --muted: #64748b;
+      --accent: #22c55e;
+      --accent2: #15803d;
+      --accent-text: #ffffff;
+      --light-green: #dcfce7;
+      --red: #dc2626;
+      --orange: #d97706;
+      --green: #059669;
+      --green-light: #dcfce7;
+      --green-border: #bbf7d0;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --header-bg: rgba(255, 255, 255, 0.95);
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, var(--bg-grad1), transparent 30%),
+        radial-gradient(circle at top right, var(--bg-grad2), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 0; flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-logo {
+      width: 46px; height: 46px; border-radius: 15px; object-fit: cover;
+      background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 12px 30px rgba(34, 255, 136, 0.2);
+      flex: 0 0 auto;
+    }
+    .brand strong { display: block; font-size: 16px; line-height: 1.2; }
+    .brand small { color: var(--muted); font-size: 12px; }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-soft); text-decoration: none; font-weight: 700; font-size: 14px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    .top-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+    .icon-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--border-strong);
+      background: var(--light-green);
+      color: var(--muted); border-radius: 999px; padding: 8px 12px;
+      font-weight: 850; cursor: pointer; transition: 0.15s ease;
+      font-size: 13px;
+    }
+    .icon-btn:hover { background: var(--card-soft); color: var(--accent); }
+    .lang-option { opacity: 0.6; }
+    .lang-option.active { opacity: 1; color: var(--accent); }
+    .timer-widget {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      border-radius: 14px; padding: 6px 8px;
+    }
+    .timer-widget select {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 6px 8px; font: inherit; font-size: 12px; max-width: 160px;
+    }
+    .timer-widget select option { background: var(--card); color: var(--text); }
+    #timerDisplay {
+      font-variant-numeric: tabular-nums; font-weight: 900;
+      min-width: 84px; text-align: center; color: var(--text); font-size: 13px;
+    }
+    .timer-btn {
+      border: 0; background: var(--card-soft); color: var(--text);
+      border-radius: 10px; padding: 6px 9px; cursor: pointer; font-size: 14px;
+      transition: 0.15s ease;
+    }
+    .timer-btn:hover { background: var(--light-green); }
+    .timer-widget.warning #timerDisplay { color: var(--orange); }
+    .timer-widget.danger #timerDisplay { color: var(--red); animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .hero {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px;
+      padding: 48px 0 28px; align-items: start;
+    }
+    .badge {
+      display: inline-flex; align-items: center; padding: 8px 12px;
+      border-radius: 999px; background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      color: var(--accent); font-size: 13px; font-weight: 700;
+    }
+    h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.05; margin: 16px 0; }
+    h1 .accent { color: var(--accent); }
+    .lead { color: var(--text-soft); max-width: 72ch; font-size: 17px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .btn {
+      border: 0; border-radius: 14px; padding: 14px 18px; font-weight: 850;
+      cursor: pointer; transition: transform .15s ease, box-shadow .15s ease;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: var(--accent-text); box-shadow: 0 12px 30px rgba(34, 255, 136, 0.22);
+      font-size: 15px;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.secondary {
+      background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      color: var(--text); box-shadow: none;
+    }
+    .btn.secondary:hover { background: var(--card-soft); }
+    .btn.small { padding: 10px 14px; font-size: 14px; border-radius: 12px; }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px; padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .panel h3 { margin: 0 0 14px; font-size: 20px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
+    .metric {
+      background: var(--light-green); border-radius: 16px;
+      padding: 14px; border: 1px solid var(--border); min-height: 82px;
+    }
+    .metric strong { display: block; font-size: 22px; color: var(--text); margin-bottom: 4px; }
+    .metric span { color: var(--muted); font-size: 12px; }
+    progress {
+      width: 100%; height: 10px; border-radius: 999px; overflow: hidden;
+      appearance: none; background: var(--light-green); border: none; margin-top: 10px;
+    }
+    progress::-webkit-progress-bar { background: var(--light-green); border-radius: 999px; }
+    progress::-webkit-progress-value { background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 999px; }
+    progress::-moz-progress-bar { background: var(--accent); border-radius: 999px; }
+    .note { color: var(--muted); font-size: 13px; margin-top: 12px; }
+    section { padding: 28px 0; }
+    .section-head {
+      display: flex; justify-content: space-between; align-items: end;
+      gap: 16px; margin-bottom: 18px; flex-wrap: wrap;
+    }
+    h2 { font-size: clamp(24px, 3vw, 34px); margin: 0; line-height: 1.15; }
+    .sub { color: var(--muted); margin: 6px 0 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 22px; padding: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .card h3 { margin: 0 0 10px; font-size: 20px; }
+    .card p { color: var(--text-soft); margin: 0 0 16px; }
+    .warn-card { border-color: rgba(245, 158, 11, 0.4); }
+    .danger-card { border-color: rgba(239, 68, 68, 0.4); }
+    .success-card { border-color: var(--green-border); }
+    .tag {
+      display: inline-block; padding: 6px 10px; border-radius: 999px;
+      font-size: 12px; font-weight: 850; margin-bottom: 10px;
+      background: var(--light-green); border: 1px solid var(--border-strong);
+      color: var(--accent);
+    }
+    .tag.red { background: rgba(239,68,68,.14); border-color: rgba(239,68,68,.4); color: var(--red); }
+    .tag.green { background: var(--green-light); border-color: var(--green-border); color: var(--green); }
+    .tag.orange { background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.4); color: var(--orange); }
+    .mini-list { margin: 0; padding-left: 18px; color: var(--text-soft); font-size: 14px; }
+    .mini-list li { margin: 7px 0; }
+    .filter-bar {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;
+      padding: 14px; background: var(--card-soft);
+      border: 1px solid var(--border); border-radius: 16px; align-items: center;
+    }
+    .filter-bar > span { color: var(--muted); font-size: 13px; font-weight: 700; margin-right: 6px; }
+    .filter-btn {
+      padding: 8px 14px; border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: var(--light-green); color: var(--text);
+      cursor: pointer; font-size: 13px; font-weight: 700; transition: .15s ease;
+    }
+    .filter-btn:hover { background: var(--card-soft); }
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      border-color: transparent; color: var(--accent-text);
+    }
+    .question-block {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 24px; padding: 24px; margin-bottom: 26px;
+      box-shadow: var(--shadow);
+    }
+    .q-number {
+      display: inline-block; padding: 6px 12px; border-radius: 999px;
+      background: var(--light-green); border: 1px solid var(--border-strong);
+      color: var(--accent); font-size: 13px; font-weight: 850; margin-bottom: 14px;
+    }
+    .q-part { margin-bottom: 18px; }
+    .q-part-label {
+      display: inline-block; font-size: 12px; font-weight: 900;
+      text-transform: uppercase; letter-spacing: .5px;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .q-text {
+      font-size: 17px; font-weight: 700; margin: 0; line-height: 1.5;
+      color: var(--text); white-space: pre-wrap;
+    }
+    .source-text {
+      background: var(--card-soft); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: 14px;
+      padding: 16px 18px; margin: 12px 0; font-size: 15px;
+      color: var(--text-soft); white-space: pre-wrap; line-height: 1.7;
+      font-style: italic;
+    }
+    .q-info {
+      background: var(--light-green); border-left: 4px solid var(--accent);
+      border-radius: 0 14px 14px 0; padding: 16px 18px; margin: 18px 0;
+      color: var(--text-soft); font-size: 15px; line-height: 1.55; white-space: pre-wrap;
+    }
+    .q-trainer-label {
+      display: inline-block; font-size: 12px; font-weight: 900;
+      text-transform: uppercase; letter-spacing: .5px;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .writing-area { margin-top: 14px; }
+    .writing-area textarea {
+      width: 100%; padding: 14px 16px; border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: var(--card-soft); color: var(--text);
+      font-size: 15px; font-family: inherit; resize: vertical; min-height: 160px;
+      line-height: 1.6;
+    }
+    .writing-area textarea:focus { outline: none; border-color: var(--accent); background: var(--light-green); }
+    .word-counter {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 8px; font-size: 13px; color: var(--muted);
+    }
+    .word-counter strong { color: var(--accent); font-size: 15px; }
+    .word-counter.ok strong { color: var(--green); }
+    .word-counter.low strong { color: var(--orange); }
+    .writing-tools {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;
+    }
+    .result-block { margin-top: 14px; padding: 14px 16px; border-radius: 14px; }
+    .result-block.correct { background: var(--light-green); border: 1px solid var(--border-strong); }
+    .result-block.wrong { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.4); }
+    .verdict { font-size: 17px; font-weight: 900; margin-bottom: 8px; }
+    .verdict.correct { color: var(--green); }
+    .verdict.wrong { color: var(--red); }
+    .result-row { margin: 6px 0; color: var(--text-soft); font-size: 15px; }
+    .result-row strong { color: var(--text); }
+    .source-row {
+      margin-top: 10px; padding-top: 10px;
+      border-top: 1px dashed var(--border-strong);
+      color: var(--muted); font-size: 13px;
+    }
+    .summary {
+      background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px; padding: 24px; text-align: center; margin-top: 24px;
+    }
+    .summary .score { font-size: 48px; font-weight: 950; color: var(--accent); }
+    .reset-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; justify-content: flex-end; }
+    .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .check-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--card-soft); border: 1px solid var(--border);
+      border-radius: 16px; padding: 14px; transition: .15s ease;
+    }
+    .check-item input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); flex: 0 0 auto; cursor: pointer; }
+    .check-item label { cursor: pointer; color: var(--text-soft); font-size: 15px; }
+    .check-item.done { opacity: .75; background: var(--light-green); border-color: var(--border-strong); }
+    .check-item.done label { text-decoration: line-through; color: var(--muted); }
+    .plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .day {
+      background: var(--card-soft); border: 1px solid var(--border);
+      border-radius: 18px; padding: 16px; min-height: 112px;
+      position: relative;
+    }
+    .day::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--accent); border-radius: 18px 0 0 18px;
+    }
+    .day b { display: block; color: var(--accent); margin-bottom: 6px; font-size: 14px; letter-spacing: .2px; }
+    .day p { margin: 0; color: var(--text-soft); font-size: 14px; }
+    .day.critical { border-color: rgba(239,68,68,.4); background: rgba(239,68,68,.08); }
+    .day.critical::before { background: var(--red); }
+    .topic-card { display: flex; flex-direction: column; }
+    .topic-card button { margin-top: auto; align-self: flex-start; }
+    .topic-card.studied { border-color: var(--accent); background: var(--light-green); }
+    .manual-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 22px; padding: 20px; margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+    .manual-card h3 { margin: 0 0 10px; font-size: 20px; }
+    .manual-card p { color: var(--text-soft); margin: 8px 0; white-space: pre-wrap; }
+    .answer-hint {
+      margin-top: 10px; padding: 12px 14px; border-radius: 14px;
+      background: var(--light-green); border: 1px solid var(--border-strong);
+      color: var(--accent); font-size: 14px; white-space: pre-wrap;
+    }
+    .check-input { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border-strong); }
+    .check-input label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
+    .check-input textarea {
+      width: 100%; padding: 12px 14px; border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: var(--card-soft); color: var(--text);
+      font-size: 15px; font-family: inherit; resize: vertical; min-height: 100px;
+    }
+    .check-input textarea:focus { outline: none; border-color: var(--accent); background: var(--light-green); }
+    .support-card {
+      background: var(--card);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px; padding: 24px;
+      box-shadow: var(--shadow); text-align: center;
+    }
+    .support-card h2 { margin-bottom: 10px; }
+    .support-card p { margin: 10px 0; color: var(--text-soft); }
+    .phone { color: var(--accent); font-weight: 900; text-decoration: none; border-bottom: 1px dashed var(--accent); }
+    .phone:hover { color: var(--accent2); }
+    .copy-status { margin-left: 8px; color: var(--accent); font-weight: 850; }
+    .support-card a.link { color: var(--accent); font-weight: 800; text-decoration: none; }
+    .support-card a.link:hover { text-decoration: underline; }
+    footer {
+      padding: 30px 0 50px; color: var(--muted); text-align: center;
+      border-top: 1px solid var(--border); margin-top: 30px;
+    }
+    .reference-table {
+      width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px;
+    }
+    .reference-table th, .reference-table td {
+      border: 1px solid var(--border); padding: 6px; text-align: left;
+    }
+    .reference-table th { background: var(--light-green); color: var(--accent); }
+    .criteria-block {
+      background: var(--card-soft); border: 1px solid var(--border);
+      border-radius: 14px; padding: 14px 16px; margin-top: 14px;
+      font-size: 13px; color: var(--text-soft); line-height: 1.6;
+    }
+    .criteria-block strong { color: var(--accent); display: block; margin-bottom: 6px; }
+    .choose-buttons {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px;
+    }
+    .choose-btn {
+      padding: 8px 14px; border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: var(--light-green); color: var(--text);
+      cursor: pointer; font-size: 13px; font-weight: 700; transition: .15s ease;
+    }
+    .choose-btn:hover { background: var(--card-soft); }
+    .choose-btn.active {
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      border-color: transparent; color: var(--accent-text);
+    }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: 1fr; }
+      nav { gap: 12px; }
+      .top-controls { width: 100%; justify-content: space-between; }
+      .timer-widget select { max-width: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="favicon.ico" class="brand-logo" alt="Anti-AI Qwen Academy" onerror="this.style.display='none'" />
+        <div>
+          <strong data-i18n="brandTitle">Анти-ИИ Квен Академия</strong>
+          <small data-i18n="brandSub">Литература • ГВЭ-9 • 2027</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#structure" data-i18n="navStructure">📚 Структура</a>
+        <a href="#topics" data-i18n="navTopics">📖 Произведения</a>
+        <a href="#trainer" data-i18n="navTrainer">🎯 Тренажёр</a>
+        <a href="#oral" data-i18n="navOral">🎤 Устная форма</a>
+        <a href="#references" data-i18n="navRefs">📋 Справочник</a>
+        <a href="#checklist" data-i18n="navChecklist">✅ Чек-лист</a>
+        <a href="#plan" data-i18n="navPlan">📅 План</a>
+        <a href="#support" data-i18n="navSupport">💚 Поддержать</a>
+      </nav>
+      <div class="top-controls">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Сменить тему">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button id="langToggle" class="icon-btn" type="button" aria-label="Сменить язык">
+          <span class="lang-option active" data-lang="ru">RU</span>
+          <span>/</span>
+          <span class="lang-option" data-lang="en">EN</span>
+        </button>
+        <div class="timer-widget" id="timerWidget" role="group" aria-label="Таймер экзамена">
+          <select id="timerPreset" aria-label="Пресет таймера"></select>
+          <span id="timerDisplay">03:00:00</span>
+          <button id="timerToggle" class="timer-btn" type="button">▶</button>
+          <button id="timerReset" class="timer-btn" type="button">↺</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge" data-i18n="badge">Бесплатно • HTML • Литература ГВЭ-9 2027 • Письменная + устная формы</span>
+        <h1 data-i18n="h1">Поможем сдать <span class="accent">ГВЭ-9 по литературе</span> правильно</h1>
+        <p class="lead" data-i18n="lead">
+          Один файл — работает без интернета. Внутри: тексты для анализа, задания по образцу ФИПИ 2027,
+          критерии оценивания, справочник с терминами и планами, устная форма (билеты), чек-лист и план подготовки.
+        </p>
+        <div class="actions">
+          <button class="btn" onclick="scrollToId('trainer')" data-i18n="actionTrainer">🎯 Пройти тренажёр</button>
+          <button class="btn secondary" onclick="scrollToId('oral')" data-i18n="actionOral">🎤 Устная форма</button>
+          <button class="btn secondary" onclick="scrollToId('references')" data-i18n="actionRefs">📋 Критерии и правила</button>
+        </div>
+      </div>
+      <aside class="panel">
+        <h3 data-i18n="quickStats">Твой прогресс</h3>
+        <div class="metrics">
+          <div class="metric">
+            <strong id="answeredCount">0/4</strong>
+            <span data-i18n="metricAnswered">заданий выполнено</span>
+          </div>
+          <div class="metric">
+            <strong id="correctCount">0</strong>
+            <span data-i18n="metricCorrect">самопроверок</span>
+          </div>
+          <div class="metric">
+            <strong id="checklistProgress">0%</strong>
+            <span data-i18n="metricChecklist">чек-лист</span>
+          </div>
+        </div>
+        <progress id="overall" value="0" max="100"></progress>
+        <p class="note" data-i18n="noteReset">Ответы сбрасываются при обновлении. Чек-лист сохраняется.</p>
+      </aside>
+    </section>
+
+    <section id="structure">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="structureTitle">📚 Структура ГВЭ-9 по литературе 2027</h2>
+          <p class="sub" data-i18n="structureSub">Письменная (180 мин, 26 баллов) + устная (15 билетов, 26 баллов).</p>
+        </div>
+      </div>
+      <div class="grid" id="structureGrid"></div>
+    </section>
+
+    <section id="topics">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="topicsTitle">📖 Ключевые произведения</h2>
+          <p class="sub" data-i18n="topicsSub">Отмечай произведения, которые уже повторил.</p>
+        </div>
+      </div>
+      <div class="grid" id="topicsGrid"></div>
+    </section>
+
+    <section id="trainer">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="trainerTitle">🎯 Тренажёр ГВЭ-9 (письменная форма)</h2>
+          <p class="sub" data-i18n="trainerSub">
+            Задания по образцу ФИПИ 2027. Выбери вариант (1.1/1.2 или 3.1/3.2), напиши свой ответ,
+            затем сравни с эталоном и критериями.
+          </p>
+        </div>
+      </div>
+      <div class="filter-bar">
+        <span data-i18n="filterShow">Показать:</span>
+        <button class="filter-btn active" data-filter="all" id="filterAll" onclick="setFilter('all', this)"></button>
+        <button class="filter-btn" data-filter="part1" id="filterPart1" onclick="setFilter('part1', this)"></button>
+        <button class="filter-btn" data-filter="part2" id="filterPart2" onclick="setFilter('part2', this)"></button>
+      </div>
+      <div class="reset-bar">
+        <button class="btn secondary small" onclick="resetAll()" data-i18n="resetAll">↺ Сбросить все ответы</button>
+      </div>
+      <div id="quizContainer"></div>
+      <div id="summaryBox"></div>
+    </section>
+
+    <section id="oral">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="oralTitle">🎤 Устная форма (Билеты)</h2>
+          <p class="sub" data-i18n="oralSub">
+            15 билетов, каждый = 2 теоретических вопроса. Подготовка — 60 минут.
+            Максимум — 26 баллов.
+          </p>
+        </div>
+      </div>
+      <div class="criteria-block">
+        <strong data-i18n="oralCriteria">Критерии:</strong>
+        • Понимание вопроса, соответствие содержания ответа поставленным проблемам.<br/>
+        • Привлечение необходимого объёма литературного материала, цитирование наизусть.<br/>
+        • Аргументированность суждений, убедительность доказательств и обоснованность выводов.<br/>
+        • Использование необходимых терминов и понятий.<br/>
+        • Композиционная стройность ответа.<br/>
+        • Ясность и точность изложения мысли, речевая грамотность.<br/>
+        <strong>Максимум за билет:</strong> 26 баллов.
+      </div>
+      <div id="oralContainer"></div>
+    </section>
+
+    <section id="references">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="refsTitle">📋 Справочник и критерии</h2>
+          <p class="sub" data-i18n="refsSub">Критерии оценивания + шкалы перевода + термины + планы анализа.</p>
+        </div>
+      </div>
+      <div class="grid" id="refsGrid"></div>
+      <div class="card" style="margin-top:16px;">
+        <h3 data-i18n="refRules">💡 Что нужно помнить на экзамене</h3>
+        <ul class="mini-list">
+          <li><strong>Полные тексты художественных произведений</strong> — разрешены (письменная форма)</li>
+          <li><strong>Сборники лирики</strong> — разрешены</li>
+          <li><strong>Толковый словарь</strong> — разрешён</li>
+          <li><strong>Черновик</strong> — можно, но записи не учитываются</li>
+          <li><strong>Письменная часть:</strong> 4 задания (1.1/1.2 + 2, 3.1/3.2 + 4)</li>
+          <li><strong>Устная часть:</strong> 2 вопроса в билете, 60 минут на подготовку</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>🧭 План анализа лирического стихотворения</h3>
+        <ol class="mini-list" style="padding-left:24px;">
+          <li>Тема и идея стихотворения.</li>
+          <li>Лирический герой, его чувства и переживания.</li>
+          <li>Композиция (как построено стихотворение).</li>
+          <li>Средства художественной выразительности (эпитеты, метафоры, сравнения, олицетворения, гиперболы).</li>
+          <li>Размер, рифма, строфика.</li>
+          <li>Моё отношение к стихотворению.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>🔍 План сопоставительного анализа (задания 2 и 4)</h3>
+        <ol class="mini-list" style="padding-left:24px;">
+          <li>Найти основание для сравнения (тема, герой, идея, приём).</li>
+          <li>Указать сходство ИЛИ различие.</li>
+          <li>Привести пример из первого текста.</li>
+          <li>Привести пример из второго текста.</li>
+          <li>Объяснить, как каждый пример подтверждает сходство/различие.</li>
+          <li>Сделать вывод.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>📚 Литературные термины (шпаргалка)</h3>
+        <table class="reference-table">
+          <tr><th>Термин</th><th>Определение</th></tr>
+          <tr><td>Эпитет</td><td>Образное определение (золотая осень)</td></tr>
+          <tr><td>Метафора</td><td>Скрытое сравнение (горит закат)</td></tr>
+          <tr><td>Сравнение</td><td>Сопоставление с союзом «как», «словно»</td></tr>
+          <tr><td>Олицетворение</td><td>Одушевление неживого (ветер воет)</td></tr>
+          <tr><td>Гипербола</td><td>Художественное преувеличение</td></tr>
+          <tr><td>Литота</td><td>Художественное преуменьшение</td></tr>
+          <tr><td>Антитеза</td><td>Противопоставление</td></tr>
+          <tr><td>Инверсия</td><td>Необычный порядок слов</td></tr>
+          <tr><td>Лирический герой</td><td>Образ человека в лирике</td></tr>
+          <tr><td>Композиция</td><td>Построение произведения</td></tr>
+          <tr><td>Сюжет</td><td>Последовательность событий</td></tr>
+          <tr><td>Конфликт</td><td>Столкновение сил, характеров</td></tr>
+          <tr><td>Эпос</td><td>Род литературы (повествование)</td></tr>
+          <tr><td>Лирика</td><td>Род литературы (чувства)</td></tr>
+          <tr><td>Драма</td><td>Род литературы (для сцены)</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="checklistTitle">✅ Чек-лист подготовки</h2>
+          <p class="sub" data-i18n="checklistSub">Прогресс сохраняется.</p>
+        </div>
+      </div>
+      <ul class="checklist" id="checklistUl"></ul>
+    </section>
+
+    <section id="plan">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="planTitle">📅 План подготовки: 25 дней</h2>
+          <p class="sub" data-i18n="planSub">Маршрут по структуре ГВЭ-9 2027.</p>
+        </div>
+      </div>
+      <div class="plan-grid" id="planGrid"></div>
+    </section>
+
+    <section id="support">
+      <div class="support-card">
+        <h2 data-i18n="supportTitle">🤝 ПОДДЕРЖАТЬ ПРОЕКТ 💚</h2>
+        <p data-i18n="supportP1"><strong>Приложение бесплатное. Было и останется.</strong></p>
+        <p data-i18n="supportP2">Все приложения бесплатны и без рекламы. Ваша помощь развивает офлайн-безопасность и образование.</p>
+        <p>
+          <span data-i18n="supportPhoneLabel">📱 ПЕРЕВОД ПО НОМЕРУ:</span>
+          <a class="phone" href="tel:89202275676">8-920-227-56-76</a>
+          <button class="btn small" onclick="copyPhone()" data-i18n="copyPhone">📋 Копировать</button>
+          <span id="copyStatus" class="copy-status" aria-live="polite"></span>
+        </p>
+        <p data-i18n="supportP3">✅ Мгновенно. Без комиссии. Безопасно.</p>
+        <p data-i18n="supportP4">❤️ Спасибо за поддержку!</p>
+        <p>🌟 👉 <a href="https://ancf-hue.github.io/" target="_blank" rel="noopener noreferrer" class="link" data-i18n="supportCatalog">Каталог офлайн-приложений Anti-AI Shield</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" data-i18n="footer">
+      Анти-ИИ Квен Академия • Бесплатный HTML-проект • Литература ГВЭ-9 2027
+    </div>
+  </footer>
+
+  <script>
+    const STORAGE = {
+      checklist: "antiIqwenLiteratureGVE9_2027_checklist_v4",
+      topics: "antiIqwenLiteratureGVE9_2027_topics_v4",
+      theme: "antiIqwenLiteratureGVE9_2027_theme",
+      lang: "antiIqwenLiteratureGVE9_2027_lang"
+    };
+
+    const I18N = {
+      ru: {
+        docTitle: "Анти-ИИ Квен Академия | Литература ГВЭ-9 2027",
+        brandTitle: "Анти-ИИ Квен Академия",
+        brandSub: "Литература • ГВЭ-9 • 2027",
+        navStructure: "📚 Структура", navTopics: "📖 Произведения", navTrainer: "🎯 Тренажёр",
+        navOral: "🎤 Устная форма", navRefs: "📋 Справочник", navChecklist: "✅ Чек-лист", navPlan: "📅 План", navSupport: "💚 Поддержать",
+        badge: "Бесплатно • HTML • Литература ГВЭ-9 2027 • Письменная + устная формы",
+        h1: 'Поможем сдать <span class="accent">ГВЭ-9 по литературе</span> правильно',
+        lead: "Один файл — работает без интернета. Внутри: тексты для анализа, задания по образцу ФИПИ 2027, критерии оценивания, справочник с терминами и планами, устная форма (билеты), чек-лист и план подготовки.",
+        actionTrainer: "🎯 Пройти тренажёр", actionOral: "🎤 Устная форма", actionRefs: "📋 Критерии и правила",
+        quickStats: "Твой прогресс",
+        metricAnswered: "заданий выполнено", metricCorrect: "самопроверок", metricChecklist: "чек-лист",
+        noteReset: "Ответы сбрасываются при обновлении. Чек-лист сохраняется.",
+        structureTitle: "📚 Структура ГВЭ-9 по литературе 2027",
+        structureSub: "Письменная (180 мин, 26 баллов) + устная (15 билетов, 26 баллов).",
+        topicsTitle: "📖 Ключевые произведения", topicsSub: "Отмечай произведения, которые уже повторил.",
+        trainerTitle: "🎯 Тренажёр ГВЭ-9 (письменная форма)",
+        trainerSub: "Задания по образцу ФИПИ 2027. Выбери вариант, напиши ответ, сравни с эталоном.",
+        filterShow: "Показать:", filterAll: "Все", filterPart1: "Часть 1 (1-2)", filterPart2: "Часть 2 (3-4)",
+        resetAll: "↺ Сбросить все ответы",
+        oralTitle: "🎤 Устная форма (Билеты)",
+        oralSub: "15 билетов, каждый = 2 теоретических вопроса. Подготовка — 60 минут.",
+        oralCriteria: "Критерии:",
+        refsTitle: "📋 Справочник и критерии",
+        refsSub: "Критерии оценивания + шкалы перевода + термины + планы анализа.",
+        refRules: "💡 Что нужно помнить на экзамене",
+        checklistTitle: "✅ Чек-лист подготовки", checklistSub: "Прогресс сохраняется.",
+        planTitle: "📅 План подготовки: 25 дней", planSub: "Маршрут по структуре ГВЭ-9 2027.", dayPrefix: "День",
+        supportTitle: "🤝 ПОДДЕРЖАТЬ ПРОЕКТ 💚",
+        supportP1: "<strong>Приложение бесплатное. Было и останется.</strong>",
+        supportP2: "Все приложения бесплатны и без рекламы. Ваша помощь развивает офлайн-безопасность и образование.",
+        supportPhoneLabel: "📱 ПЕРЕВОД ПО НОМЕРУ:", copyPhone: "📋 Копировать", copied: "✓ Скопировано",
+        supportP3: "✅ Мгновенно. Без комиссии. Безопасно.", supportP4: "❤️ Спасибо за поддержку!",
+        supportCatalog: "Каталог офлайн-приложений Anti-AI Shield",
+        footer: "Анти-ИИ Квен Академия • Бесплатный HTML-проект • Литература ГВЭ-9 2027",
+        explanation: "Эталон и критерии:",
+        source: "Источник:",
+        summaryAnswered: "Выполнено:", summaryOf: "из", summaryCorrect: "Самопроверок:",
+        summaryFinish: "Выполни все задания, чтобы увидеть итог.",
+        verdictExcellent: "Отличный результат! Ты хорошо готов к ГВЭ-9 2027.",
+        verdictGood: "Хорошо, но разбери критерии по заданиям.",
+        verdictNeeds: "Нужно внимательно проработать критерии ГВЭ-9 2027.",
+        resetConfirm: "Сбросить все ответы?",
+        copyFail: "Не удалось скопировать. Номер: ",
+        questionLabel1: "1. Задание", questionLabel2: "2. Информация", questionLabel3: "3. Твой ответ (самопроверка)",
+        levelPart1: "Часть 1", levelPart2: "Часть 2",
+        sourcePart1: "ГВЭ-9 2027, Часть 1, задание {task}",
+        sourcePart2: "ГВЭ-9 2027, Часть 2, задание {task}",
+        timerBasic: "ГВЭ-9 — 180 мин", timerPractice: "Тренировка — 60 мин", timerUp: "Время вышло!",
+        timerStart: "Запустить", timerPause: "Пауза", timerReset: "Сброс",
+        oralTag: "Устная форма", oralTaskPrefix: "Билет",
+        oralQ1: "Вопрос 1", oralQ2: "Вопрос 2",
+        oralSelfLabel: "Твой устный ответ (для самопроверки):",
+        oralPlaceholder: "Впиши свои рассуждения...",
+        showSolution: "📖 Показать эталон",
+        chooseVariant: "Выберите вариант:",
+        chosen: "Выбрано",
+        writingPlaceholder: "Напиши свой ответ здесь (3–5 предложений для базового, 4–6 для сопоставительного)...",
+        task1_1: "1.1", task1_2: "1.2", task3_1: "3.1", task3_2: "3.2",
+        wordsCount: "Слов:", sentencesCount: "Предложений:",
+        wordsOk: "✓ Норма", wordsLow: "⚠ Мало",
+        resetTask: "↺ Сбросить", copyAnswer: "📋 Копировать",
+        sourceText: "Текст для анализа:", secondText: "Текст для сопоставления:"
+      },
+      en: {
+        docTitle: "Anti-AI Qwen Academy | Literature GVE-9 2027",
+        brandTitle: "Anti-AI Qwen Academy",
+        brandSub: "Literature • GVE-9 • 2027",
+        navStructure: "📚 Structure", navTopics: "📖 Works", navTrainer: "🎯 Trainer",
+        navOral: "🎤 Oral Exam", navRefs: "📋 References", navChecklist: "✅ Checklist", navPlan: "📅 Plan", navSupport: "💚 Support",
+        badge: "Free • HTML • Literature GVE-9 2027 • Written + oral",
+        h1: 'Help you pass <span class="accent">GVE-9 Literature</span> correctly',
+        lead: "One file — works offline. Inside: texts for analysis, tasks based on FIPI 2027 sample, evaluation criteria, reference with terms and plans, oral exam (tickets), checklist and plan.",
+        actionTrainer: "🎯 Start trainer", actionOral: "🎤 Oral Exam", actionRefs: "📋 Criteria & rules",
+        quickStats: "Your progress",
+        metricAnswered: "tasks done", metricCorrect: "self-checks", metricChecklist: "checklist",
+        noteReset: "Answers reset on reload. Checklist is saved.",
+        structureTitle: "📚 GVE-9 Literature 2027 structure",
+        structureSub: "Written (180 min, 26 pts) + oral (15 tickets, 26 pts).",
+        topicsTitle: "📖 Key works", topicsSub: "Mark works you've reviewed.",
+        trainerTitle: "🎯 GVE-9 Trainer (written form)",
+        trainerSub: "Tasks based on FIPI 2027 sample. Choose variant, write your answer, compare with model.",
+        filterShow: "Show:", filterAll: "All", filterPart1: "Part 1 (1-2)", filterPart2: "Part 2 (3-4)",
+        resetAll: "↺ Reset all answers",
+        oralTitle: "🎤 Oral Exam (Tickets)",
+        oralSub: "15 tickets, each = 2 theory questions. 60 min prep.",
+        oralCriteria: "Criteria:",
+        refsTitle: "📋 Reference & criteria",
+        refsSub: "Criteria + conversion scales + terms + analysis plans.",
+        refRules: "💡 What to remember on the exam",
+        checklistTitle: "✅ Preparation checklist", checklistSub: "Progress is saved.",
+        planTitle: "📅 25-day preparation plan", planSub: "Route according to GVE-9 2027 structure.", dayPrefix: "Day",
+        supportTitle: "🤝 SUPPORT THE PROJECT 💚",
+        supportP1: "<strong>The app is free.</strong>",
+        supportP2: "All apps are free and ad-free.",
+        supportPhoneLabel: "📱 TRANSFER BY PHONE:", copyPhone: "📋 Copy", copied: "✓ Copied",
+        supportP3: "✅ Instantly. No commission.", supportP4: "❤️ Thanks!",
+        supportCatalog: "Catalog of Anti-AI Shield apps",
+        footer: "Anti-AI Qwen Academy • Free HTML project • Literature GVE-9 2027",
+        explanation: "Model and criteria:",
+        source: "Source:",
+        summaryAnswered: "Completed:", summaryOf: "of", summaryCorrect: "Self-checks:",
+        summaryFinish: "Complete all tasks to see the result.",
+        verdictExcellent: "Excellent! You're well prepared for GVE-9 2027.",
+        verdictGood: "Good, but analyze the criteria.",
+        verdictNeeds: "You need to carefully work through GVE-9 2027 criteria.",
+        resetConfirm: "Reset all answers?",
+        copyFail: "Could not copy. Number: ",
+        questionLabel1: "1. Task", questionLabel2: "2. Info", questionLabel3: "3. Your answer (self-check)",
+        levelPart1: "Part 1", levelPart2: "Part 2",
+        sourcePart1: "GVE-9 2027, Part 1, task {task}",
+        sourcePart2: "GVE-9 2027, Part 2, task {task}",
+        timerBasic: "GVE-9 — 180 min", timerPractice: "Practice — 60 min", timerUp: "Time is up!",
+        timerStart: "Start", timerPause: "Pause", timerReset: "Reset",
+        oralTag: "Oral Exam", oralTaskPrefix: "Ticket",
+        oralQ1: "Question 1", oralQ2: "Question 2",
+        oralSelfLabel: "Your oral answer (self-check):",
+        oralPlaceholder: "Enter your reasoning...",
+        showSolution: "📖 Show model",
+        chooseVariant: "Choose variant:",
+        chosen: "Selected",
+        writingPlaceholder: "Write your answer here (3–5 sentences for basic, 4–6 for comparative)...",
+        task1_1: "1.1", task1_2: "1.2", task3_1: "3.1", task3_2: "3.2",
+        wordsCount: "Words:", sentencesCount: "Sentences:",
+        wordsOk: "✓ OK", wordsLow: "⚠ Too few",
+        resetTask: "↺ Reset", copyAnswer: "📋 Copy",
+        sourceText: "Text for analysis:", secondText: "Text for comparison:"
+      }
+    };
+
+    let currentLang = localStorage.getItem(STORAGE.lang) || "ru";
+    let currentTheme = localStorage.getItem(STORAGE.theme) || "dark";
+    let currentFilter = "all";
+    let savedAnswers = {};
+    let checklistState = {};
+    let topicsState = {};
+    let oralNotes = {};
+    let chosenVariants = {};
+
+    function loc(obj) { return obj && obj[currentLang] !== undefined ? obj[currentLang] : ""; }
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, m => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[m]));
+    }
+    function scrollToId(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    
+    function saveAll() {
+      localStorage.setItem(STORAGE.checklist, JSON.stringify(checklistState));
+      localStorage.setItem(STORAGE.topics, JSON.stringify(topicsState));
+    }
+    
+    function loadAll() {
+      savedAnswers = {};
+      oralNotes = {};
+      chosenVariants = {};
+      try { checklistState = JSON.parse(localStorage.getItem(STORAGE.checklist)) || {}; } catch(e) { checklistState = {}; }
+      try { topicsState = JSON.parse(localStorage.getItem(STORAGE.topics)) || {}; } catch(e) { topicsState = {}; }
+    }
+
+    function applyTheme() {
+      document.documentElement.setAttribute("data-theme", currentTheme);
+      const icon = document.getElementById("themeIcon");
+      if (icon) icon.textContent = currentTheme === "dark" ? "🌙" : "☀️";
+    }
+    function toggleTheme() {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      localStorage.setItem(STORAGE.theme, currentTheme);
+      applyTheme();
+    }
+
+    /* CONTENT */
+    const structureCards = [
+      {
+        cardClass: "success-card", tagClass: "green",
+        tag: { ru: "Письменная форма", en: "Written form" },
+        title: { ru: "4 задания (26 баллов)", en: "4 tasks (26 points)" },
+        items: [
+          { ru: "Часть 1: фрагмент эпического/драматического/лиро-эпического произведения.", en: "Part 1: fragment of epic/dramatic/lyric-epic work." },
+          { ru: "Задание 1.1/1.2 (на выбор): 3–5 предложений, 5 баллов.", en: "Task 1.1/1.2 (choice): 3–5 sentences, 5 pts." },
+          { ru: "Задание 2: сопоставление, 4–6 предложений, 8 баллов.", en: "Task 2: comparison, 4–6 sentences, 8 pts." },
+          { ru: "Часть 2: стихотворение или басня.", en: "Part 2: poem or fable." },
+          { ru: "Задание 3.1/3.2 (на выбор): 3–5 предложений, 5 баллов.", en: "Task 3.1/3.2 (choice): 3–5 sentences, 5 pts." },
+          { ru: "Задание 4: сопоставление, 4–6 предложений, 8 баллов.", en: "Task 4: comparison, 4–6 sentences, 8 pts." },
+          { ru: "Время: 3 часа (180 минут).", en: "Time: 3 hours (180 minutes)." },
+          { ru: "Разрешены: полные тексты, сборники лирики, толковый словарь.", en: "Allowed: full texts, poetry collections, dictionary." }
+        ]
+      },
+      {
+        cardClass: "warn-card", tagClass: "orange",
+        tag: { ru: "Устная форма", en: "Oral form" },
+        title: { ru: "15 билетов (26 баллов)", en: "15 tickets (26 points)" },
+        items: [
+          { ru: "2 теоретических вопроса в билете.", en: "2 theory questions per ticket." },
+          { ru: "Оценивается: понимание, знание текста, аргументация, терминология, логика, речь.", en: "Assessed: understanding, text knowledge, argumentation, terminology, logic, speech." },
+          { ru: "Время подготовки: 60 минут.", en: "Preparation time: 60 minutes." },
+          { ru: "Максимум: 26 баллов.", en: "Max: 26 points." }
+        ]
+      },
+      {
+        cardClass: "danger-card", tagClass: "red",
+        tag: { ru: "Шкалы перевода", en: "Conversion scales" },
+        title: { ru: "Письменная / Устная", en: "Written / Oral" },
+        items: [
+          { ru: "Письменная: «2» 0–3, «3» 4–11, «4» 12–20, «5» 21–26.", en: "Written: «2» 0–3, «3» 4–11, «4» 12–20, «5» 21–26." },
+          { ru: "Устная: «2» 0–4, «3» 5–12, «4» 13–19, «5» 20–26.", en: "Oral: «2» 0–4, «3» 5–12, «4» 13–19, «5» 20–26." }
+        ]
+      }
+    ];
+
+    const topicsCards = [
+      { key: "ancient", title: { ru: "Древнерусская литература", en: "Old Russian literature" },
+        text: { ru: "«Слово о полку Игореве».", en: "«The Tale of Igor's Campaign»." } },
+      { key: "classicism", title: { ru: "Классицизм и сентиментализм", en: "Classicism & Sentimentalism" },
+        text: { ru: "Ломоносов, Фонвизин, Державин, Карамзин.", en: "Lomonosov, Fonvizin, Derzhavin, Karamzin." } },
+      { key: "krylov", title: { ru: "Басни и баллады", en: "Fables & Ballads" },
+        text: { ru: "Крылов, Жуковский.", en: "Krylov, Zhukovsky." } },
+      { key: "griboedov", title: { ru: "А.С. Грибоедов", en: "A.S. Griboedov" },
+        text: { ru: "Комедия «Горе от ума».", en: "Comedy «Woe from Wit»." } },
+      { key: "pushkin", title: { ru: "А.С. Пушкин", en: "A.S. Pushkin" },
+        text: { ru: "Лирика, «Евгений Онегин», «Капитанская дочка», «Медный всадник».", en: "Lyrics, «Eugene Onegin», «The Captain's Daughter», «The Bronze Horseman»." } },
+      { key: "lermontov", title: { ru: "М.Ю. Лермонтов", en: "M.Yu. Lermontov" },
+        text: { ru: "Лирика, «Мцыри», «Герой нашего времени», «Песня про купца Калашникова».", en: "Lyrics, «Mtsyri», «A Hero of Our Time», «Song about Tsar Ivan Vasilyevich»." } },
+      { key: "gogol", title: { ru: "Н.В. Гоголь", en: "N.V. Gogol" },
+        text: { ru: "«Ревизор», «Шинель», «Мёртвые души».", en: "«The Government Inspector», «The Overcoat», «Dead Souls»." } },
+      { key: "19century", title: { ru: "Поэзия и проза XIX века", en: "19th century poetry & prose" },
+        text: { ru: "Тютчев, Фет, Некрасов, Салтыков-Щедрин, Толстой, Чехов.", en: "Tyutchev, Fet, Nekrasov, Saltykov-Shchedrin, Tolstoy, Chekhov." } },
+      { key: "20century", title: { ru: "Литература XX века", en: "20th century literature" },
+        text: { ru: "Горький, Бунин, Блок, Маяковский, Есенин, Цветаева, Пастернак, Мандельштам, Заболоцкий, Шолохов, Твардовский, Шукшин, Солженицын, Рубцов.", en: "Gorky, Bunin, Blok, Mayakovsky, Yesenin, Tsvetaeva, Pasternak, Mandelstam, Zabolotsky, Sholokhov, Tvardovsky, Shukshin, Solzhenitsyn, Rubtsov." } },
+      { key: "war", title: { ru: "Поэзия о Великой Отечественной войне", en: "WWII poetry" },
+        text: { ru: "Симонов, Самойлов, Исаковский, Гамзатов, Берггольц, Бродский, Вознесенский, Высоцкий, Евтушенко, Кузнецов, Кушнер, Окуджава, Рождественский.", en: "Simonov, Samoilov, Isakovsky, Gamzatov, Berggolts, Brodsky, Voznesensky, Vysotsky, Yevtushenko, Kuznetsov, Kushner, Okudzhava, Rozhdestvensky." } }
+    ];
+
+    const checklistItems = [
+      { key: "ch1", label: { ru: "Знаю структуру работы (4 задания, 26 баллов, 180 минут)", en: "Know structure (4 tasks, 26 pts, 180 min)" } },
+      { key: "ch2", label: { ru: "Повторил «Слово о полку Игореве»", en: "Reviewed «The Tale of Igor's Campaign»" } },
+      { key: "ch3", label: { ru: "Повторил комедию «Горе от ума»", en: "Reviewed «Woe from Wit»" } },
+      { key: "ch4", label: { ru: "Повторил роман «Евгений Онегин»", en: "Reviewed «Eugene Onegin»" } },
+      { key: "ch5", label: { ru: "Повторил «Капитанскую дочку»", en: "Reviewed «The Captain's Daughter»" } },
+      { key: "ch6", label: { ru: "Повторил «Героя нашего времени»", en: "Reviewed «A Hero of Our Time»" } },
+      { key: "ch7", label: { ru: "Повторил «Мёртвые души»", en: "Reviewed «Dead Souls»" } },
+      { key: "ch8", label: { ru: "Повторил «Ревизор»", en: "Reviewed «The Government Inspector»" } },
+      { key: "ch9", label: { ru: "Отработал сопоставительные задания (2 и 4)", en: "Practiced comparative tasks (2 and 4)" } },
+      { key: "ch10", label: { ru: "Потренировал устный ответ по критериям", en: "Practiced oral answer against criteria" } }
+    ];
+
+    const planDays = [
+      { day: 1, critical: true, text: { ru: "Диагностика: структура ГВЭ-9, форматы, слабые темы.", en: "Diagnostics: GVE-9 structure, formats, weak topics." } },
+      { day: 2, critical: false, text: { ru: "«Слово о полку Игореве». Древнерусская литература.", en: "«The Tale of Igor's Campaign». Old Russian literature." } },
+      { day: 3, critical: false, text: { ru: "Классицизм: Ломоносов, Державин. Фонвизин «Недоросль».", en: "Classicism: Lomonosov, Derzhavin. Fonvizin «The Minor»." } },
+      { day: 4, critical: false, text: { ru: "Карамзин «Бедная Лиза». Крылов. Жуковский.", en: "Karamzin «Poor Liza». Krylov. Zhukovsky." } },
+      { day: 5, critical: false, text: { ru: "Грибоедов «Горе от ума»: анализ, герои, конфликт.", en: "Griboedov «Woe from Wit»: analysis, characters, conflict." } },
+      { day: 6, critical: false, text: { ru: "Пушкин: лирика. Основные темы и мотивы.", en: "Pushkin: lyrics. Main themes and motifs." } },
+      { day: 7, critical: false, text: { ru: "Пушкин «Евгений Онегин»: образы, сюжет, композиция.", en: "Pushkin «Eugene Onegin»: images, plot, composition." } },
+      { day: 8, critical: false, text: { ru: "Пушкин «Капитанская дочка», «Медный всадник».", en: "Pushkin «The Captain's Daughter», «The Bronze Horseman»." } },
+      { day: 9, critical: false, text: { ru: "Лермонтов: лирика. Основные темы и мотивы.", en: "Lermontov: lyrics. Main themes and motifs." } },
+      { day: 10, critical: false, text: { ru: "Лермонтов «Мцыри», «Песня про купца Калашникова».", en: "Lermontov «Mtsyri», «Song about the Merchant Kalashnikov»." } },
+      { day: 11, critical: false, text: { ru: "Лермонтов «Герой нашего времени»: Печорин, главы.", en: "Lermontov «A Hero of Our Time»: Pechorin, chapters." } },
+      { day: 12, critical: false, text: { ru: "Гоголь «Ревизор», «Шинель».", en: "Gogol «The Government Inspector», «The Overcoat»." } },
+      { day: 13, critical: false, text: { ru: "Гоголь «Мёртвые души»: образы, лирические отступления.", en: "Gogol «Dead Souls»: images, lyrical digressions." } },
+      { day: 14, critical: false, text: { ru: "Поэзия XIX века: Тютчев, Фет, Некрасов.", en: "19th century poetry: Tyutchev, Fet, Nekrasov." } },
+      { day: 15, critical: true, text: { ru: "Пробник: Часть 1 (задания 1.1/1.2 + 2).", en: "Practice: Part 1 (tasks 1.1/1.2 + 2)." } },
+      { day: 16, critical: true, text: { ru: "Пробник: Часть 2 (задания 3.1/3.2 + 4).", en: "Practice: Part 2 (tasks 3.1/3.2 + 4)." } },
+      { day: 17, critical: false, text: { ru: "Разбор ошибок пробника по критериям.", en: "Analyzing errors against criteria." } },
+      { day: 18, critical: false, text: { ru: "Салтыков-Щедрин, Толстой, Чехов.", en: "Saltykov-Shchedrin, Tolstoy, Chekhov." } },
+      { day: 19, critical: false, text: { ru: "Горький, Бунин, Блок, Маяковский.", en: "Gorky, Bunin, Blok, Mayakovsky." } },
+      { day: 20, critical: false, text: { ru: "Есенин, Цветаева, Пастернак, Мандельштам, Заболоцкий.", en: "Yesenin, Tsvetaeva, Pasternak, Mandelstam, Zabolotsky." } },
+      { day: 21, critical: false, text: { ru: "Шолохов, Твардовский, Шукшин, Солженицын, Рубцов.", en: "Sholokhov, Tvardovsky, Shukshin, Solzhenitsyn, Rubtsov." } },
+      { day: 22, critical: false, text: { ru: "Поэзия о Великой Отечественной войне.", en: "WWII poetry." } },
+      { day: 23, critical: false, text: { ru: "Устная форма: тренировка ответа по критериям.", en: "Oral form: practicing answers against criteria." } },
+      { day: 24, critical: false, text: { ru: "Финальное повторение ключевых произведений.", en: "Final review of key works." } },
+      { day: 25, critical: false, text: { ru: "Отдых, проверка документов, настройка.", en: "Rest, checking documents, mindset." } }
+    ];
+
+    /* QUIZ — задания по образцу ФИПИ с текстами */
+    const quiz = [
+      {
+        id: 1, level: "part1", task: "1.1/1.2", type: "long",
+        variants: [
+          { code: "1.1", label: { ru: "Какие черты характера Софьи проявились в приведённом эпизоде?", en: "What character traits of Sophia are revealed in this episode?" } },
+          { code: "1.2", label: { ru: "Как характеризует Молчалина его реакция на поведение Софьи?", en: "How does Molchalin's reaction to Sophia's behaviour characterize him?" } }
+        ],
+        sourceText: "София, Лиза, Молчалин.\n\nС о ф и я\nМолчалин! Как во мне рассудок цел остался!\nВедь знаете, как жизнь мне ваша дорога!\nЗачем же ей играть, и так неосторожно?\nСкажите, что у вас с рукой?\nНе дать ли капель вам? Не нужен ли покой?\nПошлёмте к доктору, пренебрегать не должно.\n\nМ о л ч а л и н\nПлатком перевязал, не больно мне с тех пор.\n\nЛ и з а\nУдарюсь об заклад, что вздор;\nИ если б не к лицу, не нужно перевязки;\nА то не вздор, что вам не избежать огласки:\nНа смех, того гляди, подымет Чацкий вас;\nИ Скалозуб, как свой хохол закрутит,\nРасскажет обморок, прибавит сто прикрас;\nШутить и он горазд, ведь нынче кто не шутит!\n\nС о ф и я\nА кем из них я дорожу?\nХочу – люблю, хочу – скажу.\nМолчалин! Будто я себя не принуждала?\nВошли вы, слова не сказала,\nПри них не смела я дохнуть,\nУ вас спросить, на вас взглянуть.\n\nМ о л ч а л и н\nНет, Софья Павловна, вы слишком откровенны.\n\nС о ф и я\nОткуда скрытность почерпнуть!\nГотова я была в окошко к вам прыгнуть.\nДа что мне до кого? До них? До всей вселенны?\nСмешно? – пусть шутят их; досадно? – пусть бранят.\n\nМ о л ч а л и н\nНе повредила бы нам откровенность эта.\n\nС о ф и я\nНеужто на дуэль вас вызвать захотят?\n\nМ о л ч а л и н\nАх! Злые языки страшнее пистолета.\n\nЛ и з а\nСидят они у батюшки теперь,\nВот кабы вы порхнули в дверь\nС лицом весёлым, беззаботно:\nКогда нам скажут, что хотим –\nКуда как верится охотно!\nИ Александр Андреич, – с ним\nО прежних днях, о тех проказах\nПоразвернитесь-ка в рассказах,\nУлыбочка и пара слов,\nИ кто влюблён – на всё готов.\n\nМ о л ч а л и н\nЯ вам советовать не смею.\n(Целует ей руку.)\n\nС о ф и я\nХотите вы?.. Пойду любезничать сквозь слёз;\nБоюсь, что выдержать притворства не сумею.\nЗачем сюда Бог Чацкого принёс!\n(Уходит).\n\n(А.С. Грибоедов, «Горе от ума»)",
+        options: [],
+        ru: {
+          text: "Прочитайте фрагмент комедии А.С. Грибоедова «Горе от ума» (диалог Софьи, Лизы и Молчалина).\n\nВыберите ОДНО из заданий: 1.1 или 1.2.\n\nДайте аргументированный связный ответ (3–5 предложений):\n– сформулируйте утверждение;\n– аргументируйте его;\n– приведите из предложенного фрагмента текста не менее двух примеров, подтверждающих сформулированное утверждение.",
+          info: "Задание 1.1/1.2 (базовый уровень). Максимум 5 баллов.\n\nКритерии:\nК1 (3 балла): Соответствие ответа заданию. Требования: 1) сформулировано утверждение, 2) аргументировано, 3) приведено не менее двух примеров.\nК2 (2 балла): Логичность и соблюдение речевых норм.",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВ приведённом эпизоде Софья проявляет искренность, решительность и одновременно страх за Молчалина. Она открыто признаётся: «Хочу – люблю, хочу – скажу», что свидетельствует о её независимости и готовности идти против мнения общества. Однако её волнение («У вас спросить, на вас взглянуть») и забота о здоровье Молчалина («Не дать ли капель вам?») показывают глубокую привязанность и тревогу.\n\nКРИТЕРИИ:\n• К1 = 3 балла, если выполнены все три требования, фактических ошибок нет.\n• К1 = 2 балла, если выполнены требования 1 и 2, но приведён только один пример.\n• К1 = 1 балл, если выполнены требования 1 и 2, но примеры не приведены.\n• К1 = 0 баллов, если не выполнено требование 1.\n• К2 = 2 балла, если нет логических и речевых ошибок; 1 балл — не более двух ошибок; 0 баллов — три и более."
+        },
+        en: {
+          text: "Read the fragment from A.S. Griboedov's comedy «Woe from Wit» (dialogue between Sophia, Liza and Molchalin).\n\nChoose ONE task: 1.1 or 1.2.\n\nGive a reasoned coherent answer (3–5 sentences):\n– formulate a statement;\n– argue it;\n– give at least two examples from the fragment confirming your statement.",
+          info: "Task 1.1/1.2 (basic). Max 5 pts.\n\nCriteria:\nK1 (3 pts): Compliance.\nK2 (2 pts): Logic and speech norms.",
+          explanation: "MODEL ANSWER (example):\n\nIn this episode Sophia shows sincerity, determination and fear for Molchalin. She openly admits: «I want – I love, I want – I'll say», showing independence. But her anxiety and care for Molchalin show deep attachment.\n\nCRITERIA:\n• K1 = 3 if all three requirements met.\n• K1 = 2 if requirements 1 and 2 met, but only one example.\n• K1 = 1 if requirements 1 and 2 met, but no examples.\n• K1 = 0 if requirement 1 not met.\n• K2 = 2 no errors; 1 — up to two errors; 0 — three or more."
+        }
+      },
+      {
+        id: 2, level: "part1", task: "2", type: "long",
+        secondText: "«Нет, Пётр Андреич, – отвечала Маша, – я не выйду за тебя без благословения твоих родителей. Без их благословения не будет тебе счастья. Покоримся воле Божией. Коли найдёшь себе суженую, коли полюбишь другую – Бог с тобою, Пётр Андреич; а я за вас обоих...» Тут она заплакала и ушла от меня; я хотел было войти за нею в комнату, но чувствовал, что был не в состоянии владеть самим собою, и воротился домой.\n\n(А.С. Пушкин, «Капитанская дочка»)",
+        options: [],
+        ru: {
+          text: "Сопоставьте рассматриваемый фрагмент пьесы А.С. Грибоедова «Горе от ума» с приведённым ниже фрагментом романа А.С. Пушкина «Капитанская дочка» (разговор Маши и Петра Гринёва, отказ от благословения).\n\nЧем различается поведение влюблённых девушек в острой жизненной ситуации?\n\nДайте аргументированный связный ответ (4–6 предложений):\n– укажите сходство ИЛИ различие фрагментов;\n– приведите аргументы;\n– приведите из каждого фрагмента минимум по одному примеру;\n– объясните, как именно каждый пример подтверждает сходство/различие.",
+          info: "Задание 2 (повышенный уровень). Максимум 8 баллов.\n\nКритерии:\nК1 (2 балла): Указание сходства/различия.\nК2 (4 балла): Привлечение текстов произведений.\nК3 (2 балла): Логичность и соблюдение речевых норм.",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nРазличие в поведении девушек проявляется в их отношении к препятствиям. Софья из «Горя от ума» готова идти против мнения света ради любви: «Готова я была в окошко к вам прыгнуть», она действует импульсивно и открыто. Маша из «Капитанской дочки», напротив, проявляет смирение и покорность судьбе: «Покоримся воле Божией», она отказывается от счастья, подчиняясь воле родителей. Таким образом, если Софья бунтует против устоев, то Маша принимает их.\n\nКРИТЕРИИ:\n• К1 = 2 балла, если сходство/различие указано верно.\n• К2 = 4 балла, если приведено по одному примеру из каждого произведения и объяснено, как они подтверждают сходство/различие.\n• К3 = 2 балла, если нет логических и речевых ошибок."
+        },
+        en: {
+          text: "Compare the fragment from Griboedov's «Woe from Wit» with the fragment from Pushkin's «The Captain's Daughter» (conversation between Masha and Peter Grinev, refusal of blessing).\n\nHow does the behaviour of the young women in a difficult situation differ?\n\nGive a reasoned coherent answer (4–6 sentences):\n– indicate similarity OR difference;\n– give arguments;\n– give at least one example from each fragment;\n– explain how each example confirms similarity/difference.",
+          info: "Task 2 (increased). Max 8 pts.\n\nCriteria:\nK1 (2 pts): Indication of similarity/difference.\nK2 (4 pts): Use of texts.\nK3 (2 pts): Logic and speech norms.",
+          explanation: "MODEL ANSWER (example):\n\nThe difference lies in their attitude to obstacles. Sophia is ready to go against society: «I was ready to jump out the window to you», she acts impulsively. Masha, on the contrary, shows humility: «Let us submit to God's will», she refuses happiness, obeying her parents. Thus, Sophia rebels, while Masha accepts.\n\nCRITERIA:\n• K1 = 2 if similarity/difference is correct.\n• K2 = 4 if one example from each work is given and explained.\n• K3 = 2 if no logic/speech errors."
+        }
+      },
+      {
+        id: 3, level: "part2", task: "3.1/3.2", type: "long",
+        variants: [
+          { code: "3.1", label: { ru: "Каким в стихотворении «Я вас любил: любовь ещё, быть может...» предстаёт лирический герой?", en: "What is the lyrical hero like in this poem?" } },
+          { code: "3.2", label: { ru: "Какую роль в стихотворении «Я вас любил: любовь ещё, быть может...» играют повторы?", en: "What is the role of repetitions in this poem?" } }
+        ],
+        sourceText: "***\n\nЯ вас любил: любовь ещё, быть может,\nВ душе моей угасла не совсем;\nНо пусть она вас больше не тревожит;\nЯ не хочу печалить вас ничем.\nЯ вас любил безмолвно, безнадежно,\nТо робостью, то ревностью томим;\nЯ вас любил так искренно, так нежно,\nКак дай вам Бог любимой быть другим.\n\n(А.С. Пушкин, 1829)",
+        options: [],
+        ru: {
+          text: "Прочитайте стихотворение А.С. Пушкина «Я вас любил: любовь ещё, быть может...» (1829).\n\nВыберите ОДНО из заданий: 3.1 или 3.2.\n\nДайте аргументированный связный ответ (3–5 предложений):\n– сформулируйте утверждение;\n– аргументируйте его;\n– приведите из стихотворения не менее двух примеров.",
+          info: "Задание 3.1/3.2 (базовый уровень). Максимум 5 баллов.\n\nКритерии:\nК1 (3 балла): Соответствие ответа заданию.\nК2 (2 балла): Логичность и соблюдение речевых норм.",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nЛирический герой стихотворения предстаёт перед нами как человек, способный на глубокое, самоотверженное и благородное чувство. Он признаётся: «Я вас любил безмолвно, безнадежно», что говорит о силе и искренности его переживаний. При этом герой желает возлюбленной счастья с другим: «Как дай вам Бог любимой быть другим», что свидетельствует о его нравственной высоте и умении отпускать.\n\nКРИТЕРИИ: аналогично заданию 1.1/1.2."
+        },
+        en: {
+          text: "Read Pushkin's poem «I loved you: love may yet...» (1829).\n\nChoose ONE task: 3.1 or 3.2.\n\nGive a reasoned coherent answer (3–5 sentences):\n– formulate a statement;\n– argue it;\n– give at least two examples.",
+          info: "Task 3.1/3.2 (basic). Max 5 pts.\n\nCriteria:\nK1 (3 pts): Compliance.\nK2 (2 pts): Logic and speech norms.",
+          explanation: "MODEL ANSWER (example):\n\nThe lyrical hero appears as a person capable of deep, selfless and noble feeling. He admits: «I loved you silently, hopelessly», showing sincerity. He wishes her happiness with another: «As God grant you be loved by another», showing moral height.\n\nCRITERIA: same as task 1.1/1.2."
+        }
+      },
+      {
+        id: 4, level: "part2", task: "4", type: "long",
+        secondText: "***\n\nЯ не люблю тебя; страстей\nИ мук умчался прежний сон;\nНо образ твой в душе моей\nВсё жив, хотя бессилен он;\nДругим предавшийся мечтам,\nЯ всё забыть его не мог;\nТак храм оставленный – всё храм,\nКумир поверженный – всё бог!\n\n(М.Ю. Лермонтов, 1831)",
+        options: [],
+        ru: {
+          text: "Сопоставьте стихотворение А.С. Пушкина «Я вас любил: любовь ещё, быть может...» с приведённым ниже стихотворением М.Ю. Лермонтова «Я не люблю тебя; страстей...» (1831).\n\nВ чём схожи раздумья поэтов о своих возлюбленных?\n\nДайте аргументированный связный ответ (4–6 предложений):\n– укажите сходство ИЛИ различие стихотворений;\n– приведите аргументы;\n– приведите из каждого стихотворения минимум по одному примеру;\n– объясните, как именно каждый пример подтверждает сходство/различие.",
+          info: "Задание 4 (повышенный уровень). Максимум 8 баллов.\n\nКритерии:\nК1 (2 балла): Указание сходства/различия.\nК2 (4 балла): Привлечение текстов.\nК3 (2 балла): Логичность и соблюдение речевых норм.",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nРаздумья поэтов схожи в том, что любовь воспринимается как чувство, оставившее глубокий след в душе, но уже пережитое. Пушкин пишет: «В душе моей угасла не совсем», а Лермонтов: «Но образ твой в душе моей / Всё жив, хотя бессилен он». Оба поэта признают, что прошлое чувство не исчезло бесследно, хотя и утратило прежнюю силу. При этом Пушкин желает возлюбленной счастья, а Лермонтов сравнивает её образ с храмом и кумиром, что говорит о благоговейном, но уже отстранённом отношении.\n\nКРИТЕРИИ: аналогично заданию 2."
+        },
+        en: {
+          text: "Compare Pushkin's poem «I loved you: love may yet...» with Lermontov's poem «I do not love you; the passions...» (1831).\n\nHow are the poets' reflections on their beloved similar?\n\nGive a reasoned coherent answer (4–6 sentences):\n– indicate similarity OR difference;\n– give arguments;\n– give at least one example from each poem;\n– explain how each example confirms similarity/difference.",
+          info: "Task 4 (increased). Max 8 pts.\n\nCriteria:\nK1 (2 pts): Indication of similarity/difference.\nK2 (4 pts): Use of texts.\nK3 (2 pts): Logic and speech norms.",
+          explanation: "MODEL ANSWER (example):\n\nThe reflections are similar in that love is perceived as a feeling that left a deep mark, but is already experienced. Pushkin writes: «In my soul it has not completely died out», and Lermontov: «But your image in my soul / Is still alive, though powerless». Both admit the past feeling has not disappeared. However, Pushkin wishes her happiness, while Lermontov compares her image to a temple and an idol.\n\nCRITERIA: same as task 2."
+        }
+      }
+    ];
+
+    /* ORAL — 10 билетов */
+    const oralTasks = [
+      {
+        n: 1,
+        ru: {
+          q1: "Какие черты авторского идеала присутствуют в образе Татьяны Лариной? (По роману А.С. Пушкина «Евгений Онегин»)",
+          q2: "Каков смысл финальной сцены комедии Н.В. Гоголя «Ревизор»?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Татьяна Ларина — воплощение авторского идеала русской женщины. Ей присущи искренность, простота, близость к народным традициям, нравственная чистота и сила духа. Пушкин подчёркивает её отличие от светского общества: она «русская душою», любит природу и деревенскую жизнь. В финале она проявляет верность долгу, отказывая Онегину: «Но я другому отдана; / Я буду век ему верна».\n\nВопрос 2. Финальная сцена «Ревизора» — «немая сцена» — является кульминацией и развязкой комедии. Она символизирует оцепенение чиновников перед лицом возмездия, их страх перед настоящим ревизором. Смысл сцены в том, что порок неизбежно будет наказан, а также в гоголевском призыве к зрителю задуматься о собственных пороках: «Над кем смеётесь? Над собой смеётесь!»"
+        },
+        en: {
+          q1: "What features of the author's ideal are present in the image of Tatyana Larina? (Based on Pushkin's novel «Eugene Onegin»)",
+          q2: "What is the meaning of the final scene of Gogol's comedy «The Government Inspector»?",
+          explanation: "MODEL ANSWER (example):\n\nQ1. Tatyana Larina embodies the author's ideal of a Russian woman. She is sincere, simple, close to folk traditions, morally pure and strong. Pushkin emphasizes her difference from high society: she is «Russian in soul». In the finale she shows loyalty to duty.\n\nQ2. The final «silent scene» is the climax and denouement. It symbolizes the officials' numbness before retribution. The meaning is that vice will be punished, and Gogol calls the audience to reflect on their own vices."
+        }
+      },
+      {
+        n: 2,
+        ru: {
+          q1: "Почему роман А.С. Пушкина «Евгений Онегин» называют «энциклопедией русской жизни»?",
+          q2: "В чём трагедия Печорина? (По роману М.Ю. Лермонтова «Герой нашего времени»)",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Роман называют «энциклопедией русской жизни», потому что в нём отражены все стороны жизни русского общества 1820-х годов: быт, нравы, культура, образование, театр, балы, деревня и столица, крепостное право, мода, литература. Пушкин показывает жизнь во всех её проявлениях — от бытовых деталей до философских размышлений.\n\nВопрос 2. Трагедия Печорина в том, что он — незаурядная личность, но его силы не находят применения. Он осознаёт ничтожность своего существования, но не может найти смысл жизни. Печорин сам говорит: «Зачем я жил? Для какой цели я родился?» Его эгоизм и неспособность к настоящему чувству приводят к одиночеству и разрушению судеб окружающих."
+        },
+        en: {
+          q1: "Why is Pushkin's novel «Eugene Onegin» called an «encyclopedia of Russian life»?",
+          q2: "What is Pechorin's tragedy? (Based on Lermontov's novel «A Hero of Our Time»)",
+          explanation: "MODEL ANSWER (example):\n\nQ1. The novel is called an «encyclopedia of Russian life» because it reflects all aspects of Russian society of the 1820s: everyday life, customs, culture, education, theatre, balls, village and capital, serfdom, fashion, literature. Pushkin shows life in all its manifestations.\n\nQ2. Pechorin's tragedy is that he is an outstanding personality, but his powers find no application. He realizes the worthlessness of his existence but cannot find the meaning of life. His selfishness and inability for genuine feeling lead to loneliness and destruction of the fates of those around him."
+        }
+      },
+      {
+        n: 3,
+        ru: {
+          q1: "Каков смысл названия поэмы Н.В. Гоголя «Мёртвые души»?",
+          q2: "Почему рассказ М.А. Шолохова называется «Судьба человека»?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Смысл названия поэмы «Мёртвые души» двойной. С одной стороны, это купленные Чичиковым умершие крестьяне, ещё числящиеся в ревизских списках. С другой — это метафора: «мёртвые души» — это сами помещики (Манилов, Коробочка, Ноздрёв, Собакевич, Плюшкин), чьи души мертвы, поглощены пороками. Гоголь показывает духовную смерть помещичьего сословия.\n\nВопрос 2. Название «Судьба человека» многозначно. Оно говорит о судьбе конкретного человека — Андрея Соколова, пережившего войну и плен, потерявшего семью, но сохранившего человеческое достоинство. Вместе с тем это судьба целого поколения, всего народа, прошедшего через тяжелейшие испытания. История Соколова — это история страны."
+        },
+        en: {
+          q1: "What is the meaning of the title of Gogol's poem «Dead Souls»?",
+          q2: "Why is Sholokhov's story called «The Fate of a Man»?",
+          explanation: "MODEL ANSWER (example):\n\nQ1. The meaning of the title is double. On the one hand, these are dead serfs bought by Chichikov, still listed in the census. On the other hand, it is a metaphor: «dead souls» are the landowners themselves, whose souls are dead, consumed by vices. Gogol shows the spiritual death of the landowners.\n\nQ2. The title is multi-valued. It speaks of the fate of a specific person — Andrei Sokolov, who survived the war and captivity, lost his family, but retained human dignity. At the same time, it is the fate of a whole generation, of the entire people. Sokolov's story is the history of the country."
+        }
+      },
+      {
+        n: 4,
+        ru: {
+          q1: "В чём своеобразие конфликта комедии А.С. Грибоедова «Горе от ума»?",
+          q2: "Каков смысл финала поэмы М.Ю. Лермонтова «Мцыри»?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Конфликт комедии «Горе от ума» двойной: это столкновение Чацкого с обществом («век нынешний» и «век минувший») и любовный конфликт с Софьей. Чацкий, умный и свободолюбивый, противостоит фамусовскому обществу, где ценятся чин, богатство и лицемерие. Его монологи обличают крепостное право, невежество, карьеризм. Любовная линия также важна: Чацкий любит Софью, но она выбрала Молчалина. Таким образом, конфликт раскрывает трагедию умного человека в обществе, где ум считается опасным.\n\nВопрос 2. Финал поэмы «Мцыри» — это смерть героя, но не поражение, а освобождение. Мцыри умирает, но перед смертью он обретает свободу, к которой стремился всю жизнь. Его предсмертная просьба — похоронить его в саду, где цветут акации, — символизирует стремление к родине и свободе. Смысл финала в том, что даже в смерти герой остаётся непокорённым, а его дух обретает покой. Таким образом, финал утверждает победу свободы над неволей."
+        },
+        en: {
+          q1: "What is the peculiarity of the conflict in Griboedov's comedy «Woe from Wit»?",
+          q2: "What is the meaning of the finale of Lermontov's poem «Mtsyri»?",
+          explanation: "MODEL ANSWER (example):\n\nQ1. The conflict is double: Chatsky's clash with society («the present age» vs «the past age») and the love conflict with Sophia. Chatsky, intelligent and freedom-loving, opposes Famus society, where rank, wealth and hypocrisy are valued. His monologues expose serfdom, ignorance, careerism. The love line is also important: Chatsky loves Sophia, but she chose Molchalin. Thus, the conflict reveals the tragedy of an intelligent person in a society where intelligence is considered dangerous.\n\nQ2. The finale of «Mtsyri» is the hero's death, but not defeat — it is liberation. Mtsyri dies, but before death he finds the freedom he strove for all his life. His dying request — to bury him in the garden where acacias bloom — symbolizes the striving for homeland and freedom. The meaning of the finale is that even in death the hero remains unconquered, and his spirit finds peace. Thus, the finale affirms the victory of freedom over captivity."
+        }
+      },
+      {
+        n: 5,
+        ru: {
+          q1: "Как раскрывается тема «маленького человека» в повести Н.В. Гоголя «Шинель»?",
+          q2: "Почему рассказ А.П. Чехова называется «Хамелеон»?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Тема «маленького человека» в повести «Шинель» раскрывается через образ Акакия Акакиевича Башмачкина. Это титулярный советник, чья жизнь ничтожна и незаметна. Его единственная мечта — новая шинель, ради которой он экономит и терпит лишения. Но когда шинель крадут, герой погибает от горя и несправедливости. Гоголь показывает трагедию человека, чья жизнь не стоит ничего в глазах общества. Таким образом, тема «маленького человека» раскрывается как трагедия униженной и оскорблённой личности.\n\nВопрос 2. Рассказ Чехова называется «Хамелеон» потому, что его главный герой, полицейский надзиратель Очумелов, меняет своё мнение в зависимости от обстоятельств, как хамелеон меняет цвет. Сначала он готов наказать собаку, укусившую Хрюкина, но узнав, что она, возможно, принадлежит генералу, меняет решение. Чехов высмеивает беспринципность и угодничество. Таким образом, название раскрывает главную идею рассказа — приспособленчество и отсутствие собственной позиции."
+        },
+        en: {
+          q1: "How is the theme of the «little man» revealed in Gogol's story «The Overcoat»?",
+          q2: "Why is Chekhov's story called «The Chameleon»?",
+          explanation: "MODEL ANSWER (example):\n\nQ1. The theme of the «little man» in «The Overcoat» is revealed through the image of Akaky Akakievich Bashmachkin. He is a titular councillor whose life is insignificant and unnoticed. His only dream is a new overcoat, for which he saves and endures hardships. But when the overcoat is stolen, the hero dies of grief and injustice. Gogol shows the tragedy of a man whose life means nothing in the eyes of society. Thus, the theme of the «little man» is revealed as the tragedy of a humiliated and insulted personality.\n\nQ2. Chekhov's story is called «The Chameleon» because its main character, police superintendent Ochumelov, changes his opinion depending on circumstances, like a chameleon changes colour. At first he is ready to punish the dog that bit Khryukin, but learning that it may belong to the general, he changes his decision. Chekhov ridicules unscrupulousness and sycophancy. Thus, the title reveals the main idea of the story — opportunism and lack of one's own position."
+        }
+      },
+      {
+        n: 6,
+        ru: {
+          q1: "В чём смысл противопоставления Данко и Ларры в рассказе М. Горького «Старуха Изергиль»?",
+          q2: "Как раскрывается тема родины в лирике С.А. Есенина?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. В рассказе Горького «Старуха Изергиль» противопоставлены два героя: Данко и Ларра. Ларра — эгоист, сын орла и женщины, который презирает людей и не признаёт законов общества. Он обречён на вечное одиночество. Данко, напротив, жертвует собой ради спасения людей, вырывая из груди сердце, чтобы осветить путь. Смысл противопоставления в том, что смысл жизни — в служении людям, а не в эгоизме. Таким образом, автор утверждает идеал подвига и самопожертвования.\n\nВопрос 2. Тема родины в лирике Есенина раскрывается через образы русской деревни, природы, крестьянского быта. В стихотворении «Гой ты, Русь моя родная...» поэт признаётся в любви к родной земле: «Если крикнет рать святая: / „Кинь ты Русь, живи в раю!“ / Я скажу: „Не надо рая, / Дайте родину мою“». Есенин использует яркие метафоры и эпитеты, создавая образ святой Руси. Таким образом, тема родины — центральная в его творчестве, она проникнута любовью и болью за судьбу России."
+        },
+        en: {
+          q1: "What is the meaning of the contrast between Danko and Larra in Gorky's story «Old Woman Izergil»?",
+          q2: "How is the theme of homeland revealed in Yesenin's lyrics?",
+          explanation: "MODEL ANSWER (example):\n\nQ1. In Gorky's story «Old Woman Izergil» two heroes are contrasted: Danko and Larra. Larra is an egoist, the son of an eagle and a woman, who despises people and does not recognize the laws of society. He is doomed to eternal loneliness. Danko, on the contrary, sacrifices himself to save people, tearing his heart out of his chest to light the way. The meaning of the contrast is that the meaning of life is in serving people, not in egoism. Thus, the author affirms the ideal of heroism and self-sacrifice.\n\nQ2. The theme of homeland in Yesenin's lyrics is revealed through images of the Russian village, nature, and peasant life. In the poem «Goy you, my dear Rus...» the poet confesses his love for his native land: «If the holy army shouts: / „Throw away Rus, live in paradise!“ / I will say: „No need for paradise, / Give me my homeland“». Yesenin uses bright metaphors and epithets, creating the image of holy Rus. Thus, the theme of homeland is central to his work, imbued with love and pain for the fate of Russia."
+        }
+      },
+      {
+        n: 7,
+        ru: {
+          q1: "В чём смысл противопоставления Чацкого и Молчалина в комедии А.С. Грибоедова «Горе от ума»?",
+          q2: "Как раскрывается тема поэта и поэзии в лирике А.С. Пушкина?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Чацкий и Молчалин — антиподы. Чацкий — умный, свободолюбивый, искренний, обличает пороки общества. Молчалин — угодливый, беспринципный, готов на всё ради чина и богатства. Его жизненное кредо: «Мне завещал отец: / Во-первых, угождать всем людям без изъятья». Смысл противопоставления — показать два пути: путь борьбы и путь приспособления. Грибоедов утверждает идеал свободной личности.\n\nВопрос 2. Тема поэта и поэзии — одна из главных в лирике Пушкина. В стихотворении «Пророк» поэт изображается как избранник Бога, чей долг — «глаголом жечь сердца людей». В стихотворении «Я памятник себе воздвиг нерукотворный...» Пушкин утверждает, что поэт живёт в своих произведениях: «Нет, весь я не умру – душа в заветной лире / Мой прах переживёт и тленья убежит». Таким образом, Пушкин видит назначение поэта в служении свободе и добру."
+        },
+        en: {
+          q1: "What is the meaning of the contrast between Chatsky and Molchalin in Griboedov's comedy «Woe from Wit»?",
+          q2: "How is the theme of poet and poetry revealed in Pushkin's lyrics?",
+          explanation: "MODEL ANSWER (example):\n\nQ1. Chatsky and Molchalin are antipodes. Chatsky is intelligent, freedom-loving, sincere, denounces the vices of society. Molchalin is obsequious, unprincipled, ready for anything for rank and wealth. His credo: «My father bequeathed to me: / First, to please all people without exception». The meaning of the contrast is to show two paths: the path of struggle and the path of adaptation. Griboedov affirms the ideal of a free personality.\n\nQ2. The theme of poet and poetry is one of the main ones in Pushkin's lyrics. In the poem «The Prophet» the poet is depicted as God's chosen one, whose duty is «to burn people's hearts with the word». In the poem «I erected a monument to myself not made by hands...» Pushkin asserts that the poet lives in his works: «No, I will not all die – my soul in the cherished lyre / Will survive my ashes and escape decay». Thus, Pushkin sees the poet's purpose in serving freedom and goodness."
+        }
+      },
+      {
+        n: 8,
+        ru: {
+          q1: "Как раскрывается тема любви в лирике Ф.И. Тютчева?",
+          q2: "В чём особенность сатиры М.Е. Салтыкова-Щедрина? (На примере сказок «Повесть о том, как один мужик двух генералов прокормил» и «Премудрый пискарь»)",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Тема любви в лирике Тютчева раскрывается как чувство сложное, противоречивое, часто трагическое. В стихотворении «О, как убийственно мы любим...» поэт показывает, что любовь может приносить боль и страдания. В «Денисьевском цикле» любовь предстаёт как «поединок роковой» двух сердец. Таким образом, Тютчев раскрывает любовь как стихию, которая захватывает человека целиком, но не всегда приносит счастье.\n\nВопрос 2. Сатира Салтыкова-Щедрина отличается гротеском, гиперболой, аллегорией и иносказанием. В сказке «Повесть о том, как один мужик двух генералов прокормил» писатель высмеивает беспомощность помещиков и трудолюбие народа. В «Премудром пискаре» — обывательскую трусость и желание спрятаться от жизни. Сатира Щедрина направлена против социальной несправедливости, глупости и приспособленчества. Таким образом, его сказки — это политическая и нравственная сатира."
+        },
+        en: {
+          q1: "How is the theme of love revealed in Tyutchev's lyrics?",
+          q2: "What is the peculiarity of Saltykov-Shchedrin's satire? (Based on the tales «The Tale of How One Man Fed Two Generals» and «The Wise Minnow»)",
+          explanation: "MODEL ANSWER (example):\n\nQ1. The theme of love in Tyutchev's lyrics is revealed as a complex, contradictory, often tragic feeling. In the poem «Oh, how murderously we love...» the poet shows that love can bring pain and suffering. In the «Denisyev cycle» love appears as a «fatal duel» of two hearts. Thus, Tyutchev reveals love as an element that captures a person entirely, but does not always bring happiness.\n\nQ2. Saltykov-Shchedrin's satire is distinguished by grotesque, hyperbole, allegory and Aesopian language. In the tale «The Tale of How One Man Fed Two Generals» the writer ridicules the helplessness of landowners and the industriousness of the people. In «The Wise Minnow» — the philistine cowardice and desire to hide from life. Shchedrin's satire is directed against social injustice, stupidity and opportunism. Thus, his tales are political and moral satire."
+        }
+      },
+      {
+        n: 9,
+        ru: {
+          q1: "Как раскрывается тема «человек и природа» в лирике А.А. Фета?",
+          q2: "В чём смысл названия рассказа А.И. Солженицына «Матрёнин двор»?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Тема «человек и природа» в лирике Фета раскрывается через единство человека и мира природы. В стихотворении «Я пришёл к тебе с приветом...» поэт передаёт радость бытия, связь с природой. В стихотворении «Учись у них – у дуба, у берёзы...» Фет призывает учиться у природы терпению и стойкости. Природа у Фета — источник вдохновения и гармонии. Таким образом, пейзажная лирика Фета проникнута философским содержанием.\n\nВопрос 2. Название «Матрёнин двор» многозначно. С одной стороны, это дом Матрёны, где происходит действие. С другой стороны, это символ праведничества, народной нравственности. Матрёна — «праведница», без которой «не стоит земля». Её двор — это тот мир, где сохранились доброта, трудолюбие, сострадание. Таким образом, название раскрывает главную идею — тему праведничества и гибели народных традиций."
+        },
+        en: {
+          q1: "How is the theme of «man and nature» revealed in Fet's lyrics?",
+          q2: "What is the meaning of the title of Solzhenitsyn's story «Matryona's Home»?",
+          explanation: "MODEL ANSWER (example):\n\nQ1. The theme of «man and nature» in Fet's lyrics is revealed through the unity of man and the natural world. In the poem «I came to you with greetings...» the poet conveys the joy of being, the connection with nature. In the poem «Learn from them – from the oak, from the birch...» Fet calls for learning patience and resilience from nature. Nature in Fet is a source of inspiration and harmony. Thus, Fet's landscape lyrics are imbued with philosophical content.\n\nQ2. The title «Matryona's Home» is multi-valued. On the one hand, it is Matryona's house where the action takes place. On the other hand, it is a symbol of righteousness, folk morality. Matryona is a «righteous woman» without whom «the earth does not stand». Her home is the world where kindness, hard work, compassion are preserved. Thus, the title reveals the main idea — the theme of righteousness and the death of folk traditions."
+        }
+      },
+      {
+        n: 10,
+        ru: {
+          q1: "Каков смысл названия повести А.С. Пушкина «Капитанская дочка»?",
+          q2: "Как раскрывается тема подвига в поэме А.Т. Твардовского «Василий Тёркин»?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ (пример):\n\nВопрос 1. Название «Капитанская дочка» указывает не только на главную героиню, Машу Миронову, но и на нравственный центр повести. Маша — дочь коменданта Белогорской крепости, воплощение верности, чести и достоинства. Её образ связан с темой милосердия и любви. Через судьбу Маши Пушкин раскрывает идею «береги честь смолоду». Таким образом, название подчёркивает важность нравственных ценностей.\n\nВопрос 2. Тема подвига в поэме «Василий Тёркин» раскрывается через образ простого солдата. Тёркин — не богатырь, а обычный человек, но он смел, находчив, не теряет присутствия духа. Подвиг в поэме — это не только героические сражения, но и ежедневный труд, верность товарищам, любовь к родине. В главе «Переправа» Тёркин переплывает холодную реку, чтобы передать донесение. Твардовский показывает, что подвиг совершается не ради славы, а ради жизни на земле. Таким образом, поэма утверждает идеал народного героизма."
+        },
+        en: {
+          q1: "What is the meaning of the title of Pushkin's novel «The Captain's Daughter»?",
+          q2: "How is the theme of heroism revealed in Tvardovsky's poem «Vasily Tyorkin»?",
+          explanation: "MODEL ANSWER (example):\n\nQ1. The title «The Captain's Daughter» points not only to the main heroine, Masha Mironova, but also to the moral center of the novel. Masha is the daughter of the commandant of the Belogorsk fortress, the embodiment of loyalty, honour and dignity. Her image is connected with the theme of mercy and love. Through Masha's fate Pushkin reveals the idea «take care of honour from a young age». Thus, the title emphasizes the importance of moral values.\n\nQ2. The theme of heroism in the poem «Vasily Tyorkin» is revealed through the image of a simple soldier. Tyorkin is not a hero, but an ordinary man, yet he is brave, resourceful, does not lose his presence of mind. Heroism in the poem is not only heroic battles, but also daily work, loyalty to comrades, love for the motherland. In the chapter «Crossing» Tyorkin swims across a cold river to deliver a report. Tvardovsky shows that heroism is performed not for glory, but for life on earth. Thus, the poem affirms the ideal of folk heroism."
+        }
+      }
+    ];
+
+    function renderStructureCards() {
+      document.getElementById("structureGrid").innerHTML = structureCards.map(card => {
+        let body = "";
+        if (card.items) body = `<ul class="mini-list">${card.items.map(it => `<li>${escapeHtml(loc(it))}</li>`).join("")}</ul>`;
+        return `<article class="card ${card.cardClass}">
+          <span class="tag ${card.tagClass}">${escapeHtml(loc(card.tag))}</span>
+          <h3>${escapeHtml(loc(card.title))}</h3>
+          ${body}
+        </article>`;
+      }).join("");
+    }
+
+    function renderTopicsCards() {
+      document.getElementById("topicsGrid").innerHTML = topicsCards.map(t => {
+        const studied = topicsState[t.key] ? "studied" : "";
+        const btnLabel = topicsState[t.key] ? "✓ Изучено" : "Отметить";
+        return `<article class="card topic-card ${studied}">
+          <h3>${escapeHtml(loc(t.title))}</h3>
+          <p>${escapeHtml(loc(t.text))}</p>
+          <button class="btn small" onclick="toggleTopic('${t.key}')">${btnLabel}</button>
+        </article>`;
+      }).join("");
+    }
+
+    function renderChecklist() {
+      document.getElementById("checklistUl").innerHTML = checklistItems.map(item => {
+        const checked = checklistState[item.key] ? "checked" : "";
+        const done = checklistState[item.key] ? "done" : "";
+        return `<li class="check-item ${done}">
+          <input type="checkbox" id="${item.key}" data-key="${item.key}" ${checked} />
+          <label for="${item.key}">${escapeHtml(loc(item.label))}</label>
+        </li>`;
+      }).join("");
+    }
+
+    function renderPlan() {
+      const L = I18N[currentLang];
+      document.getElementById("planGrid").innerHTML = planDays.map(d => `
+        <div class="day ${d.critical ? "critical" : ""}">
+          <b>${escapeHtml(L.dayPrefix)} ${d.day}</b>
+          <p>${escapeHtml(loc(d.text))}</p>
+        </div>
+      `).join("");
+    }
+
+    function renderReferences() {
+      document.getElementById("refsGrid").innerHTML = `
+        <div class="card success-card">
+          <h3>Критерии письменной части (задания 1.1/1.2, 3.1/3.2)</h3>
+          <table class="reference-table">
+            <tr><th>Критерий</th><th>Балл</th></tr>
+            <tr><td>К1. Соответствие ответа заданию</td><td>0–3</td></tr>
+            <tr><td>К2. Логичность и соблюдение речевых норм</td><td>0–2</td></tr>
+            <tr><td><strong>Максимум</strong></td><td><strong>5</strong></td></tr>
+          </table>
+        </div>
+        <div class="card warn-card">
+          <h3>Критерии письменной части (задания 2 и 4)</h3>
+          <table class="reference-table">
+            <tr><th>Критерий</th><th>Балл</th></tr>
+            <tr><td>К1. Указание сходства/различия</td><td>0–2</td></tr>
+            <tr><td>К2. Привлечение текстов произведений</td><td>0–4</td></tr>
+            <tr><td>К3. Логичность и соблюдение речевых норм</td><td>0–2</td></tr>
+            <tr><td><strong>Максимум</strong></td><td><strong>8</strong></td></tr>
+          </table>
+        </div>
+        <div class="card danger-card">
+          <h3>Шкала перевода (письменная форма)</h3>
+          <table class="reference-table">
+            <tr><th>Отметка</th><th>Баллы</th></tr>
+            <tr><td>«2»</td><td>0–3</td></tr>
+            <tr><td>«3»</td><td>4–11</td></tr>
+            <tr><td>«4»</td><td>12–20</td></tr>
+            <tr><td>«5»</td><td>21–26</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Шкала перевода (устная форма)</h3>
+          <table class="reference-table">
+            <tr><th>Отметка</th><th>Баллы</th></tr>
+            <tr><td>«2»</td><td>0–4</td></tr>
+            <tr><td>«3»</td><td>5–12</td></tr>
+            <tr><td>«4»</td><td>13–19</td></tr>
+            <tr><td>«5»</td><td>20–26</td></tr>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderOral() {
+      const container = document.getElementById("oralContainer");
+      const L = I18N[currentLang];
+      container.innerHTML = oralTasks.map(t => {
+        const tr = t[currentLang];
+        return `
+          <article class="manual-card">
+            <span class="tag red">${escapeHtml(L.oralTag)}</span>
+            <h3>${escapeHtml(L.oralTaskPrefix)} №${t.n}</h3>
+            <div class="q-part-label">${escapeHtml(L.oralQ1)}</div>
+            <div class="q-text">${escapeHtml(tr.q1)}</div>
+            <div class="q-part-label" style="margin-top:14px;">${escapeHtml(L.oralQ2)}</div>
+            <div class="q-text">${escapeHtml(tr.q2)}</div>
+            <div class="answer-hint">${escapeHtml(L.oralCriteria).replace(/\n/g, "<br/>")}</div>
+            <div class="check-input">
+              <label>${escapeHtml(L.oralSelfLabel)}</label>
+              <textarea data-oral="${t.n}" placeholder="${escapeHtml(L.oralPlaceholder)}">${escapeHtml(oralNotes[t.n] || "")}</textarea>
+            </div>
+            <div style="margin-top:10px;">
+              <button class="btn small secondary" onclick="showOralModel(${t.n})">${escapeHtml(L.showSolution)}</button>
+            </div>
+            <div id="oralResult-${t.n}"></div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function showOralModel(n) {
+      const t = oralTasks.find(x => x.n === n);
+      if (!t) return;
+      const box = document.getElementById("oralResult-" + n);
+      const L = I18N[currentLang];
+      box.innerHTML = `
+        <div class="result-block correct">
+          <div class="verdict correct">📖 ${escapeHtml(L.explanation)}</div>
+          <div class="result-row" style="white-space:pre-wrap;">${escapeHtml(t[currentLang].explanation)}</div>
+        </div>`;
+      updateStats();
+      updateSummary();
+    }
+
+    function levelLabel(level) {
+      const L = I18N[currentLang];
+      return L["level" + level.replace("v", "")] || level;
+    }
+    function sourceLabel(q) {
+      const L = I18N[currentLang];
+      const tpl = L["source" + (q.level === "part1" ? "Part1" : "Part2")] || "GVE-9 2027, task {task}";
+      return tpl.replace("{task}", q.task);
+    }
+
+    function countWords(text) {
+      if (!text) return 0;
+      return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+    }
+    function countSentences(text) {
+      if (!text) return 0;
+      return text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      const L = I18N[currentLang];
+      container.innerHTML = "";
+      quiz.forEach(q => {
+        const block = document.createElement("div");
+        block.className = "question-block";
+        block.id = "q" + q.id;
+
+        const tr = q[currentLang];
+        const saved = savedAnswers["solution_" + q.id] || "";
+        const words = countWords(saved);
+        const sentences = countSentences(saved);
+        const minWords = q.task === "2" || q.task === "4" ? 40 : 25;
+        const counterClass = words >= minWords ? "ok" : (words > 0 ? "low" : "");
+        
+        let variantsHtml = "";
+        if (q.variants && q.variants.length > 0) {
+          const chosen = chosenVariants[q.id];
+          variantsHtml = `
+            <div class="q-part-label" style="margin-top:14px;">${escapeHtml(L.chooseVariant)}</div>
+            <div class="choose-buttons">
+              ${q.variants.map(v => `
+                <button class="choose-btn ${chosen === v.code ? "active" : ""}" onclick="chooseVariant(${q.id}, '${v.code}')">
+                  ${escapeHtml(v.code)}: ${escapeHtml(loc(v.label))}
+                </button>
+              `).join("")}
+            </div>
+          `;
+        }
+
+        const sourceBlock = q.sourceText ? `
+          <div class="q-part-label">${escapeHtml(L.sourceText)}</div>
+          <div class="source-text">${escapeHtml(q.sourceText)}</div>
+        ` : "";
+
+        const secondTextBlock = q.secondText ? `
+          <div class="q-part-label">${escapeHtml(L.secondText)}</div>
+          <div class="source-text">${escapeHtml(q.secondText)}</div>
+        ` : "";
+
+        block.innerHTML = `
+          <div class="q-number">${escapeHtml(levelLabel(q.level))}, ${currentLang === "ru" ? "задание" : "task"} ${q.task}</div>
+          <div class="q-part">
+            <span class="q-part-label">${escapeHtml(L.questionLabel1)}</span>
+            <div class="q-text">${escapeHtml(tr.text)}</div>
+            ${sourceBlock}
+            ${secondTextBlock}
+          </div>
+          <div class="q-info">
+            <span class="q-part-label" style="color:var(--accent);">${escapeHtml(L.questionLabel2)}</span>
+            <p style="margin:0;">${escapeHtml(tr.info)}</p>
+          </div>
+          <div class="q-part">
+            <span class="q-trainer-label">${escapeHtml(L.questionLabel3)}</span>
+            ${variantsHtml}
+            <div class="writing-area">
+              <textarea id="solution_${q.id}" data-qid="${q.id}" placeholder="${escapeHtml(L.writingPlaceholder)}">${escapeHtml(saved)}</textarea>
+              <div class="word-counter ${counterClass}" id="counter_${q.id}">
+                <span>${escapeHtml(L.wordsCount)} <strong>${words}</strong> / ${escapeHtml(L.sentencesCount)} <strong>${sentences}</strong></span>
+                <span>${words >= minWords ? escapeHtml(L.wordsOk) : (words > 0 ? escapeHtml(L.wordsLow) : "")}</span>
+              </div>
+            </div>
+            <div class="writing-tools">
+              <button class="btn small secondary" onclick="resetTask(${q.id})">${escapeHtml(L.resetTask)}</button>
+              <button class="btn small secondary" onclick="copyAnswer(${q.id})">${escapeHtml(L.copyAnswer)}</button>
+              <button class="btn small" onclick="showModel(${q.id})">${escapeHtml(L.showSolution)}</button>
+            </div>
+          </div>
+          <div id="result-${q.id}"></div>
+        `;
+        container.appendChild(block);
+      });
+      
+      container.querySelectorAll("textarea[data-qid]").forEach(ta => {
+        ta.addEventListener("input", e => {
+          const qid = e.target.dataset.qid;
+          const text = e.target.value;
+          savedAnswers["solution_" + qid] = text;
+          const q = quiz.find(x => x.id == qid);
+          const words = countWords(text);
+          const sentences = countSentences(text);
+          const minWords = q && (q.task === "2" || q.task === "4") ? 40 : 25;
+          const counter = document.getElementById("counter_" + qid);
+          if (counter) {
+            counter.className = "word-counter " + (words >= minWords ? "ok" : (words > 0 ? "low" : ""));
+            counter.querySelectorAll("strong")[0].textContent = words;
+            counter.querySelectorAll("strong")[1].textContent = sentences;
+            const statusSpan = counter.querySelectorAll("span")[1];
+            statusSpan.textContent = words >= minWords ? I18N[currentLang].wordsOk : (words > 0 ? I18N[currentLang].wordsLow : "");
+          }
+          updateStats();
+        });
+      });
+      
+      updateFilterLabels();
+      applyFilter();
+      updateStats();
+      updateSummary();
+    }
+
+    function chooseVariant(qId, code) {
+      chosenVariants[qId] = code;
+      renderQuestions();
+    }
+
+    function resetTask(qId) {
+      if (!confirm(I18N[currentLang].resetConfirm)) return;
+      delete savedAnswers["solution_" + qId];
+      renderQuestions();
+      updateStats();
+      updateSummary();
+    }
+
+    function copyAnswer(qId) {
+      const text = savedAnswers["solution_" + qId] || "";
+      const status = document.getElementById("copyStatus");
+      const L = I18N[currentLang];
+      const show = () => { if (status) { status.textContent = L.copied; setTimeout(() => status.textContent = "", 2500); } };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(show).catch(() => fallbackCopy(text, show));
+      } else fallbackCopy(text, show);
+    }
+
+    function showModel(qId) {
+      const q = quiz.find(item => item.id === qId);
+      if (!q) return;
+      const resultBox = document.getElementById("result-" + qId);
+      const L = I18N[currentLang];
+      const isHidden = !resultBox.innerHTML || resultBox.innerHTML.trim() === "";
+      if (isHidden) {
+        resultBox.innerHTML = `
+          <div class="result-block correct">
+            <div class="verdict correct">📖 ${escapeHtml(L.explanation)}</div>
+            <div class="result-row" style="white-space:pre-wrap;">${escapeHtml(q[currentLang].explanation)}</div>
+            <div class="source-row"><strong>${escapeHtml(L.source)}</strong> ${escapeHtml(sourceLabel(q))}</div>
+          </div>`;
+      } else {
+        resultBox.innerHTML = "";
+      }
+      updateStats();
+      updateSummary();
+    }
+
+    function setFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+      applyFilter();
+    }
+    function applyFilter() {
+      quiz.forEach(q => {
+        const block = document.getElementById("q" + q.id);
+        if (!block) return;
+        let show = true;
+        if (currentFilter === "part1") show = q.level === "part1";
+        else if (currentFilter === "part2") show = q.level === "part2";
+        block.style.display = show ? "" : "none";
+      });
+    }
+    function updateFilterLabels() {
+      const L = I18N[currentLang];
+      const cPart1 = quiz.filter(q => q.level === "part1").length;
+      const cPart2 = quiz.filter(q => q.level === "part2").length;
+      document.getElementById("filterAll").textContent = `${L.filterAll} (${quiz.length})`;
+      document.getElementById("filterPart1").textContent = `${L.filterPart1} (${cPart1})`;
+      document.getElementById("filterPart2").textContent = `${L.filterPart2} (${cPart2})`;
+    }
+
+    function toggleTopic(key) {
+      topicsState[key] = !topicsState[key];
+      saveAll();
+      renderTopicsCards();
+      updateStats();
+    }
+
+    function isQuestionAnswered(q) {
+      if (q.type === "long") {
+        return !!savedAnswers["solution_" + q.id];
+      }
+      return false;
+    }
+
+    function updateStats() {
+      const total = quiz.length;
+      let answered = 0;
+      quiz.forEach(q => {
+        if (isQuestionAnswered(q)) answered++;
+      });
+      document.getElementById("answeredCount").textContent = answered + "/" + total;
+      document.getElementById("correctCount").textContent = answered;
+      const clDone = checklistItems.filter(i => checklistState[i.key]).length;
+      const clPct = Math.round((clDone / checklistItems.length) * 100);
+      document.getElementById("checklistProgress").textContent = clPct + "%";
+      const overall = Math.round((answered / total * 100 + clPct) / 2);
+      document.getElementById("overall").value = overall;
+    }
+
+    function updateSummary() {
+      const box = document.getElementById("summaryBox");
+      const L = I18N[currentLang];
+      const total = quiz.length;
+      let answered = 0;
+      quiz.forEach(q => {
+        if (isQuestionAnswered(q)) answered++;
+      });
+      if (answered < total) {
+        box.innerHTML = `<div class="summary">
+          <p style="margin:0;color:var(--muted);">${escapeHtml(L.summaryAnswered)} <strong>${answered}</strong> ${escapeHtml(L.summaryOf)} ${total}</p>
+          <p style="margin:8px 0 0;color:var(--muted);font-size:14px;">${escapeHtml(L.summaryFinish)}</p>
+        </div>`;
+        return;
+      }
+      box.innerHTML = `<div class="summary">
+        <div class="score">${answered}/${total}</div>
+        <p style="margin:8px 0;">${escapeHtml(L.verdictExcellent)}</p>
+        <p style="color:var(--muted);margin:0;">${escapeHtml(L.summaryCorrect)} 100%</p>
+      </div>`;
+    }
+
+    function resetAll() {
+      if (!confirm(I18N[currentLang].resetConfirm)) return;
+      savedAnswers = {};
+      oralNotes = {};
+      chosenVariants = {};
+      renderQuestions();
+      renderOral();
+      updateStats();
+      updateSummary();
+    }
+
+    function applyUIText() {
+      const L = I18N[currentLang];
+      document.title = L.docTitle;
+      document.documentElement.lang = currentLang;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (L[key] != null) el.innerHTML = L[key];
+      });
+    }
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem(STORAGE.lang, lang);
+      document.querySelectorAll(".lang-option").forEach(sp => sp.classList.toggle("active", sp.dataset.lang === lang));
+      applyUIText();
+      renderAll();
+    }
+
+    function renderAll() {
+      renderStructureCards();
+      renderTopicsCards();
+      renderQuestions();
+      renderOral();
+      renderReferences();
+      renderChecklist();
+      renderPlan();
+      updateStats();
+      updateSummary();
+    }
+
+    let timerTotal = 180 * 60, timerRemaining = timerTotal, timerInterval = null, timerRunning = false;
+    function formatTime(sec) {
+      const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+      return [h, m, s].map(v => String(v).padStart(2, "0")).join(":");
+    }
+    function updateTimerDisplay() {
+      const display = document.getElementById("timerDisplay");
+      const widget = document.getElementById("timerWidget");
+      display.textContent = formatTime(timerRemaining);
+      widget.classList.toggle("warning", timerRemaining <= 300 && timerRemaining > 60);
+      widget.classList.toggle("danger", timerRemaining <= 60);
+    }
+    function updateTimerButton() {
+      const L = I18N[currentLang];
+      const btn = document.getElementById("timerToggle");
+      btn.textContent = timerRunning ? "⏸" : "▶";
+      btn.setAttribute("title", timerRunning ? L.timerPause : L.timerStart);
+    }
+    function stopTimer() { timerRunning = false; if (timerInterval) clearInterval(timerInterval); timerInterval = null; updateTimerButton(); }
+    function startTimer() {
+      if (timerRunning || timerRemaining <= 0) return;
+      timerRunning = true;
+      timerInterval = setInterval(() => {
+        if (timerRemaining > 0) { timerRemaining--; updateTimerDisplay(); }
+        if (timerRemaining === 0) { stopTimer(); alert(I18N[currentLang].timerUp); }
+      }, 1000);
+      updateTimerButton();
+    }
+    function toggleTimer() { timerRunning ? stopTimer() : startTimer(); }
+    function resetTimer() { stopTimer(); timerRemaining = timerTotal; updateTimerDisplay(); }
+    function updateTimerLabels() {
+      const L = I18N[currentLang];
+      const preset = document.getElementById("timerPreset");
+      const selected = preset.value;
+      const presets = [
+        { seconds: 180 * 60, key: "timerBasic" },
+        { seconds: 60 * 60, key: "timerPractice" }
+      ];
+      preset.innerHTML = presets.map(p => `<option value="${p.seconds}">${escapeHtml(L[p.key])}</option>`).join("");
+      if (selected && presets.some(p => String(p.seconds) === selected)) preset.value = selected;
+      else preset.value = String(timerTotal);
+    }
+
+    function copyPhone() {
+      const phone = "89202275676";
+      const status = document.getElementById("copyStatus");
+      const L = I18N[currentLang];
+      const show = () => { status.textContent = L.copied; setTimeout(() => status.textContent = "", 2500); };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(phone).then(show).catch(() => fallbackCopy(phone, show));
+      } else fallbackCopy(phone, show);
+    }
+    function fallbackCopy(text, cb) {
+      const t = document.createElement("textarea");
+      t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.focus(); t.select();
+      try { document.execCommand("copy"); cb(); } catch (e) { alert(I18N[currentLang].copyFail + text); }
+      document.body.removeChild(t);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadAll();
+      applyTheme();
+      applyUIText();
+      renderAll();
+      updateTimerLabels();
+      updateTimerDisplay();
+
+      document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+      document.getElementById("langToggle").addEventListener("click", () => {
+        setLang(currentLang === "ru" ? "en" : "ru");
+      });
+      document.getElementById("timerToggle").addEventListener("click", toggleTimer);
+      document.getElementById("timerReset").addEventListener("click", resetTimer);
+      document.getElementById("timerPreset").addEventListener("change", e => {
+        timerTotal = parseInt(e.target.value, 10);
+        resetTimer();
+      });
+      document.getElementById("checklistUl").addEventListener("change", e => {
+        if (e.target.matches("input[type='checkbox']")) {
+          const key = e.target.dataset.key;
+          checklistState[key] = e.target.checked;
+          saveAll();
+          const li = e.target.closest(".check-item");
+          if (li) li.classList.toggle("done", e.target.checked);
+          updateStats();
+        }
+      });
+      document.getElementById("oralContainer").addEventListener("input", e => {
+        if (e.target.matches("textarea[data-oral]")) {
+          oralNotes[e.target.dataset.oral] = e.target.value;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
